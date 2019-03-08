@@ -38,7 +38,7 @@ spring:
   profiles: dev    
 
 server:
-  port: 8090
+  port: 8091
 
 eureka:
   client:
@@ -50,7 +50,7 @@ eureka:
     
 ---
 spring:
-  profiles: dev
+  profiles: prod
 
 server:
   port: 5000
