@@ -8,6 +8,8 @@ public interface HistoryService {
 	List<History> findAll();
 
 	History findById(int id);
+	
+	List<History> findBySurveyId(int surveyId);
 
 	List<History> findByEmail(String email);
 	

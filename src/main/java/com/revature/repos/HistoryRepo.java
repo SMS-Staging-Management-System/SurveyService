@@ -7,6 +7,8 @@ import com.revature.models.History;
 import java.util.List;
 
 public interface HistoryRepo extends JpaRepository<History, Integer> {
+	
+	List<History> findBySurveyId(int surveyId);
 
 	List<History> findByUserEmail(String email);
 

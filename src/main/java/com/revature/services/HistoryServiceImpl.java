@@ -24,6 +24,11 @@ public class HistoryServiceImpl implements HistoryService {
 	public History findById(int id) {
 		return historyRepo.getOne(id);
 	}
+	
+	@Override
+	public List<History> findBySurveyId(int surveyId) {
+		return historyRepo.findBySurveyId(surveyId);
+	}
 
 	@Override
 	public List<History> findByEmail(String email) {

@@ -32,6 +32,11 @@ public class HistoryController {
 		return historyService.findById(id);
 	}
 	
+	@GetMapping("/survey/{surveyId}")
+	public List<History> findBySurveyId(@PathVariable int surveyId) {
+		return historyService.findBySurveyId(surveyId);
+	}
+	
 	// Query for email. Uses post mapping so that the @ symbol can be send in the body rather than in the URL
 	@PostMapping("/email")
 	public List<History> findByEmail(@Valid @RequestBody String email) {
