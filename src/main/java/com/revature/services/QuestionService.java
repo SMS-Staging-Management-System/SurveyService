@@ -8,7 +8,7 @@ public interface QuestionService {
 
 	Question findById(int id);
 
-	Question findByType(int typeId);
+	List<Question> findByType(int typeId);
 
 	Question save(Question q);
 

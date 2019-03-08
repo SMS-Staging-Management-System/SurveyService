@@ -33,7 +33,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/type/{typeId}")
-	public Question findByType(@PathVariable int typeId) {
+	public List<Question> findByType(@PathVariable int typeId) {
 		return questionService.findByType(typeId);
 	}
 

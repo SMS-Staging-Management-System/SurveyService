@@ -25,7 +25,7 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public Question findByType(int typeId) {
+	public List<Question> findByType(int typeId) {
 		return questionRepo.findByTypeId(typeId);
 	}
 	
