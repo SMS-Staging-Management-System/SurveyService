@@ -42,7 +42,7 @@ public class History {
 	}
 
 	public History(int historyId, @NotNull int surveyId, @NotNull String userEmail, @NotNull Date dateAssigned,
-			@NotNull Date dateCompleted) {
+			Date dateCompleted) {
 		super();
 		this.historyId = historyId;
 		this.surveyId = surveyId;
