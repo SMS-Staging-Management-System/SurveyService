@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +41,16 @@ public class EditorController {
 	@GetMapping("surveys/{id}")
 	public Editor findEditorBySurveyId(@PathVariable int id) {
 		return eSI.findBySurveyId(id);
+	}
+	
+	@PostMapping
+	public Editor createEditor(@RequestBody Editor editor) {
+		return eSI.createEditor(editor);
+	}
+	
+	@PatchMapping
+	public Editor updateEditor(@RequestBody Editor editor) {
+		return eSI.updateEditor(editor);
 	}
 
 }

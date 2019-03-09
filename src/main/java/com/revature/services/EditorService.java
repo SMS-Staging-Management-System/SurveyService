@@ -15,4 +15,8 @@ public interface EditorService {
 
 	Editor findBySurveyId(int id);
 
+	Editor createEditor(Editor editor);
+
+	Editor updateEditor(Editor editor);
+
 }
