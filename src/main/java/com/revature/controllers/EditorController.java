@@ -22,7 +22,7 @@ public class EditorController {
 	@Autowired
 	private EditorServiceImpl eSI;
 
-	@GetMapping
+	@GetMapping("")
 	List<Editor> findAll() {
 		return eSI.findAll();
 	}

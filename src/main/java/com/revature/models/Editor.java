@@ -1,6 +1,7 @@
 package com.revature.models;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,10 +24,13 @@ public class Editor {
 	private int id;
 	private String email;
 	
-	
+	/**
 	@ManyToOne
 	@JoinColumn(name="survey_id")
-	private Survey surveyId;
+	private Survey surveyId;**/
+	
+	@Column(name ="survey_id")
+	private int surveyId;
 
 
 	public int getId() {
@@ -49,17 +53,17 @@ public class Editor {
 	}
 
 
-	public Survey getSurveyId() {
+	public int getSurveyId() {
 		return surveyId;
 	}
 
 
-	public void setSurveyId(Survey surveyId) {
+	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
 	}
 
 
-	public Editor(int id, String email, Survey surveyId) {
+	public Editor(int id, String email, int surveyId) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -79,7 +83,7 @@ public class Editor {
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((surveyId == null) ? 0 : surveyId.hashCode());
+		result = prime * result + surveyId;
 		return result;
 	}
 
@@ -100,10 +104,7 @@ public class Editor {
 			return false;
 		if (id != other.id)
 			return false;
-		if (surveyId == null) {
-			if (other.surveyId != null)
-				return false;
-		} else if (!surveyId.equals(other.surveyId))
+		if (surveyId != other.surveyId)
 			return false;
 		return true;
 	}
@@ -113,6 +114,9 @@ public class Editor {
 	public String toString() {
 		return "Editor [id=" + id + ", email=" + email + ", surveyId=" + surveyId + "]";
 	}
+
+
+	
 
 	
 }
