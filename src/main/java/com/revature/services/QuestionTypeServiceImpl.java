@@ -20,4 +20,10 @@ public class QuestionTypeServiceImpl implements QuestionTypeService {
 		return questionTypeRepo.findAll();
 	}
 
+	@Override
+	public QuestionType findById(int id) {
+		// TODO Auto-generated method stub
+		return questionTypeRepo.getOne(id);
+	}
+
 }

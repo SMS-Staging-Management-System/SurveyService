@@ -7,4 +7,6 @@ public interface QuestionTypeService {
 
 	public List<QuestionType> findAll();
 
+	public QuestionType findById(int id);
+
 }
