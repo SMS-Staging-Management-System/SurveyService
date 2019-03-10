@@ -13,7 +13,7 @@ public interface EditorService {
 
 	Editor findByEmail(String email);
 
-	List<Editor> findBySurveyId(int id);
+	List<Editor> findBySurveyIdSurveyId(int id);
 
 	Editor createEditor(Editor editor);
 

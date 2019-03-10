@@ -48,9 +48,9 @@ public class EditorController {
 		return eSI.findByEmail(email);
 	}
 
-	@GetMapping("/survey/{id}")
-	public List<Editor> findEditorBySurveyId(@PathVariable int surveyId) {
-		return eSI.findBySurveyId(surveyId);
+	@GetMapping("/surveyId/{id}")
+	public List<Editor> findBySurveyIdSurveyId(@PathVariable int id) {
+		return eSI.findBySurveyIdSurveyId(id);
 	}
 
 	// Creates editor by calling method createEditor from EditorServiceImpl class

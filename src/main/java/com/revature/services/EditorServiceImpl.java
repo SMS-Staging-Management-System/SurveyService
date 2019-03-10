@@ -35,8 +35,8 @@ public class EditorServiceImpl implements EditorService {
 	}
 
 	@Override
-	public List<Editor> findBySurveyId(int id) {
-		return eRepo.findBySurveyId(id);
+	public List<Editor> findBySurveyIdSurveyId(int id) {
+		return eRepo.findBySurveyIdSurveyId(id);
 	}
 
 	@Override
