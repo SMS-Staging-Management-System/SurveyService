@@ -55,8 +55,9 @@ public class EditorServiceImpl implements EditorService {
 	}
 
 	@Override
-	public void deleteEditor(int id) {
+	public String deleteEditor(int id) {
 		eRepo.deleteById(id);
+		return "Editor has been successfully deleted";
 	}
 
 }

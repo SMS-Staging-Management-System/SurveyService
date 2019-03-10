@@ -69,8 +69,8 @@ public class EditorController {
     ////Deletes editor by calling method updateEditor from the EditorServiceImpl class
 	@DeleteMapping
 	public String deleteEditor(int id) {
-		eSI.deleteEditor(id);
-		return "Editor has been successfully deleted";
+		return eSI.deleteEditor(id);
+		
 	}
 
 	@ExceptionHandler(Exception.class)

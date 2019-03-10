@@ -19,6 +19,6 @@ public interface EditorService {
 
 	Editor updateEditor(Editor editor);
 	
-	void deleteEditor(int id);
+	String deleteEditor(int id);
 
 }
