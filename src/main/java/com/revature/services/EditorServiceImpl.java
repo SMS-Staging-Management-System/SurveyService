@@ -25,12 +25,12 @@ public class EditorServiceImpl implements EditorService {
 
 	@Override
 	@Transactional
-	public Editor findById(int id) {
-		return eRepo.getOne(id);
+    public List<Editor> findById(int id) {
+ 		return eRepo.findEditorById(id);
 	}
 
 	@Override
-	public Editor findByEmail(String email) {
+	public List<Editor> findByEmail(String email) {
 		return eRepo.findByEmail(email);
 	}
 
@@ -48,7 +48,7 @@ public class EditorServiceImpl implements EditorService {
 	@Transactional
 	public Editor updateEditor(Editor editor) {
 		Editor updatedEditor= new Editor();
-		updatedEditor=findById(editor.getId());
+		updatedEditor=(Editor) findById(editor.getId());
 		updatedEditor.setEmail(editor.getEmail());
 		updatedEditor.setSurveyId(editor.getSurveyId());
 		return eRepo.save(updatedEditor);
@@ -60,4 +60,5 @@ public class EditorServiceImpl implements EditorService {
 		return "Editor has been successfully deleted";
 	}
 
+	
 }

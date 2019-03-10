@@ -8,9 +8,12 @@ import com.revature.models.Editor;
 
 public interface EditorRepo extends JpaRepository<Editor, Integer> {
 	
+	
+    List<Editor> findEditorById(int id);
+	
 	List<Editor> findBySurveyIdSurveyId(int id);
 	
-	Editor findByEmail(String email);
+	List<Editor> findByEmail(String email);
 	
 	
 

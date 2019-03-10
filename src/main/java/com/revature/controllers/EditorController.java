@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import org.hibernate.cfg.EJB3DTDEntityResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,15 +37,15 @@ public class EditorController {
 
 	// Obtain id from URL and pass it to method find editor by id
 	@GetMapping("{id}")
-	public Editor findEditorById(@PathVariable int id) {
+	public List<Editor> findEditorById(@PathVariable int id) {
 		return eSI.findById(id);
 	}
 
 	 /* Obtains email from URL and pass it to method to find editor by email. We used
 	@PostMapping because correct email cant be passed in using
 	GetMapping*/
-	@PostMapping("/email/{email}")
-	public Editor findByEmail(@Valid @RequestBody String email) {
+	@PostMapping("/email")
+	public List<Editor> findByEmail(@Valid @RequestBody String email) {
 		return eSI.findByEmail(email);
 	}
 
@@ -73,9 +74,9 @@ public class EditorController {
 		
 	}
 
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<String> handleExceptions(Exception e) {
-		return new ResponseEntity<String>("An error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+//	@ExceptionHandler(Exception.class)
+//	public ResponseEntity<String> handleExceptions(Exception e) {
+//		return new ResponseEntity<String>("An error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+//	}
 
 }

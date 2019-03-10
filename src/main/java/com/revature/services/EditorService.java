@@ -9,9 +9,11 @@ public interface EditorService {
 
 	List<Editor> findAll();
 
-	Editor findById(int id);
+	List<Editor> findById(int id);
+	
+	//List<Editor> findEditorById(int id);
 
-	Editor findByEmail(String email);
+	List<Editor> findByEmail(String email);
 
 	List<Editor> findBySurveyIdSurveyId(int id);
 
