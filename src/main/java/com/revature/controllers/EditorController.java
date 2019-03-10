@@ -73,9 +73,9 @@ public class EditorController {
 		return "Editor has been successfully deleted";
 	}
 
-//	@ExceptionHandler(Exception.class)
-//	public ResponseEntity<String> handleExceptions(Exception e) {
-//		return new ResponseEntity<String>("An error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> handleExceptions(Exception e) {
+		return new ResponseEntity<String>("An error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 }
