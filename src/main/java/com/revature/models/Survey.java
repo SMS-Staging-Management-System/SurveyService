@@ -24,7 +24,7 @@ public class Survey {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	//@JoinColumn(name = "survey_id")
+	@Column(name = "id")
 	private int surveyId;
 	
 	@NotNull

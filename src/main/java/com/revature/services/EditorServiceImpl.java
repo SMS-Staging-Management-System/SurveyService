@@ -35,7 +35,7 @@ public class EditorServiceImpl implements EditorService {
 	}
 
 	@Override
-	public Editor findBySurveyId(int id) {
+	public List<Editor> findBySurveyId(int id) {
 		return eRepo.findBySurveyId(id);
 	}
 
@@ -52,6 +52,11 @@ public class EditorServiceImpl implements EditorService {
 		updatedEditor.setEmail(editor.getEmail());
 		updatedEditor.setSurveyId(editor.getSurveyId());
 		return eRepo.save(updatedEditor);
+	}
+
+	@Override
+	public void deleteEditor(int id) {
+		eRepo.deleteById(id);
 	}
 
 }

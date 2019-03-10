@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,8 +39,8 @@ public class EditorController {
 		return eSI.findByEmail(email);
 	}
 
-	@GetMapping("surveys/{id}")
-	public Editor findEditorBySurveyId(@PathVariable int id) {
+	@GetMapping("surveyId/{id}")
+	public List<Editor> findEditorBySurveyId(@PathVariable int id) {
 		return eSI.findBySurveyId(id);
 	}
 	
@@ -52,5 +53,10 @@ public class EditorController {
 	public Editor updateEditor(@RequestBody Editor editor) {
 		return eSI.updateEditor(editor);
 	}
+	@DeleteMapping
+	public void deleteEditor(int id) {
+		eSI.deleteEditor(id);
+	}
+	
 
 }

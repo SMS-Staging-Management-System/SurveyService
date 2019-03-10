@@ -13,10 +13,12 @@ public interface EditorService {
 
 	Editor findByEmail(String email);
 
-	Editor findBySurveyId(int id);
+	List<Editor> findBySurveyId(int id);
 
 	Editor createEditor(Editor editor);
 
 	Editor updateEditor(Editor editor);
+	
+	void deleteEditor(int id);
 
 }
