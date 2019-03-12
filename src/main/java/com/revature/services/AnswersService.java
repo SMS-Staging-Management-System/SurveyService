@@ -11,8 +11,8 @@ import com.revature.models.Answers;
 
 public interface AnswersService {
 
-	 Answers save(Answers A);
-   Answers update(Answers A);
+	Answers save(Answers A);
+	Answers update(Answers A);
     Answers delete(Answers A);
     
     List<Answers> findAll();

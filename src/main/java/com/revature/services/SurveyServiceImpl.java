@@ -28,7 +28,6 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Override
 	public List<Survey> findAll() {
-		// TODO Auto-generated method stub
 		return surveyRepo.findAll();
 	}
 
@@ -47,6 +46,5 @@ public class SurveyServiceImpl implements SurveyService {
 		s.setSurveyId(0);
 		return surveyRepo.save(s);
 	}
-
 
 }

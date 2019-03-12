@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Responses;
+import com.revature.models.Survey;
 import com.revature.services.ResponsesService;
 
 @RestController
@@ -20,10 +21,9 @@ import com.revature.services.ResponsesService;
 public class ResponsesController {
 	
 	@Autowired
-//	private ResponsesServiceImpl rSI;
 	private ResponsesService responseService;
 	
-	@GetMapping
+	@GetMapping("")
 	public List<Responses> findAll() {
 		return responseService.findAll();
 	}
@@ -43,4 +43,10 @@ public class ResponsesController {
     public List<Responses> findByEmail(@Valid @RequestBody String email) {
         return responseService.findByUserEmail(email);
     }
+    
+	@PostMapping
+	public int save(@Valid @RequestBody Responses r) {
+		Responses responses = responseService.save(r);
+		return responses.getId();
+	}
 }

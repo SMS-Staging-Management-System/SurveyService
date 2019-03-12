@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Responses;
+import com.revature.models.Survey;
 import com.revature.repos.ResponsesRepo;
 
 @Service
@@ -32,6 +33,24 @@ public class ResponsesServiceImpl implements ResponsesService {
 	@Override
 	public List<Responses> findByUserEmail(String userEmail) {
 		return responseRepo.findByUserEmail(userEmail);
+	}
+
+	@Override
+	public Responses save(Responses r) {
+		r.setId(0);
+		return responseRepo.save(r);
+	}
+
+	@Override
+	public Responses update(Responses r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Responses delete(Responses r) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

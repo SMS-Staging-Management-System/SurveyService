@@ -1,6 +1,6 @@
 package com.revature.services;
 
-import com.revature.models.*;
+import com.revature.models.Responses;
 import java.util.List;
 
 public interface ResponsesService {
@@ -9,4 +9,7 @@ public interface ResponsesService {
 	List<Responses> findBySurveyIdSurveyId(int id);
 	List<Responses> findByUserEmail(String userEmail);
 	
+	Responses save(Responses r);
+	Responses update(Responses r);
+	Responses delete(Responses r);
 }
