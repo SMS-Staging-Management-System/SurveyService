@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="responses")
+@Table(name = "responses")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Responses {
 	
@@ -19,15 +19,15 @@ public class Responses {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="user_email")
+	@Column(name = "user_email")
 	private String userEmail;
 	
 	@ManyToOne
-	@JoinColumn(name="survey_id")
+	@JoinColumn(name = "survey_id")
 	private Survey surveyId;
 	
 	@ManyToOne
-	@JoinColumn(name="answer_id")
+	@JoinColumn(name = "answer_id")
 	private Answers answerId;
 
 	public Responses(int id, String userEmail, Survey surveyId, Answers answerId) {

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Answers;
 
-
-
 @Repository
 public interface AnswersRepo  extends JpaRepository <Answers, Integer>{
 

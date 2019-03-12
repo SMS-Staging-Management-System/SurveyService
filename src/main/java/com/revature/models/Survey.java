@@ -1,20 +1,20 @@
 package com.revature.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.ManyToAny;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -38,7 +38,6 @@ public class Survey {
 	private Date dateCreated;
 	
 	@Column(name = "closing_date")
-	@NotNull
 	private Date closingDate;
 	
 	private boolean template;
@@ -46,7 +45,7 @@ public class Survey {
 	private boolean published;
 
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull Date dateCreated,
-			@NotNull Date closingDate, boolean template, boolean published) {
+			Date closingDate, boolean template, boolean published) {
 		super();
 		this.surveyId = surveyId;
 		this.title = title;
@@ -56,9 +55,10 @@ public class Survey {
 		this.template = template;
 		this.published = published;
 	}
-	
+
 	public Survey() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -225,6 +225,23 @@ public class Survey {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", dateCreated="
 				+ dateCreated + ", closingDate=" + closingDate + ", template=" + template + ", published=" + published
 				+ "]";
-	}	
+	}
 	
+//	@OneToMany //(mappedBy = "surveys", targetEntity = Editor.class)
+//	@JsonIgnore
+//	private List<Editor> editors;
+//	//private Collection<Editor> editor = new ArrayList<Editor>();
+//	
+//	@OneToMany //(mappedBy = "surveys", targetEntity = Question.class)
+//	@JsonIgnore
+//	private List<Question> question;
+//	
+//	@OneToMany //(mappedBy = "surveys", targetEntity = Responses.class)
+//	@JsonIgnore
+//	private List<Responses> responses;
+//	
+//	@OneToMany //(mappedBy = "surveys", targetEntity = SurveyHistory.class)
+//	@JsonIgnore
+//	private List<SurveyHistory> surveyHistory;
+
 }
