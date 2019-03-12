@@ -188,7 +188,7 @@ INSERT INTO responses (survey_id, answer_id, user_email) VALUES (1, 32, null);
 INSERT INTO responses (survey_id, answer_id, user_email) VALUES (1, 35, null);
 
 -- Insert Survey 2
-INSERT INTO surveys (title, description, date_created, "template", published) VALUES ('Staging Manager Evaluation', 'A survey for associates in staging to evaluate the stagin manager.', '03-07-2019', TRUE, TRUE);
+INSERT INTO surveys (title, description, date_created, "template", published) VALUES ('Staging Manager Evaluation', 'A survey for associates in staging to evaluate the staging manager.', '03-07-2019', TRUE, TRUE);
 INSERT INTO questions (question, type_id) VALUES ('Name (Optional)', 5);
 INSERT INTO questions (question, type_id) VALUES ('Email (Optional)', 5);
 INSERT INTO questions (question, type_id) VALUES ('How many weeks have you been in staging?', 3);
