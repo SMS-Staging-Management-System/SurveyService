@@ -1,20 +1,14 @@
 package com.revature.models;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -226,22 +220,5 @@ public class Survey {
 				+ dateCreated + ", closingDate=" + closingDate + ", template=" + template + ", published=" + published
 				+ "]";
 	}
-	
-//	@OneToMany //(mappedBy = "surveys", targetEntity = Editor.class)
-//	@JsonIgnore
-//	private List<Editor> editors;
-//	//private Collection<Editor> editor = new ArrayList<Editor>();
-//	
-//	@OneToMany //(mappedBy = "surveys", targetEntity = Question.class)
-//	@JsonIgnore
-//	private List<Question> question;
-//	
-//	@OneToMany //(mappedBy = "surveys", targetEntity = Responses.class)
-//	@JsonIgnore
-//	private List<Responses> responses;
-//	
-//	@OneToMany //(mappedBy = "surveys", targetEntity = SurveyHistory.class)
-//	@JsonIgnore
-//	private List<SurveyHistory> surveyHistory;
 
 }

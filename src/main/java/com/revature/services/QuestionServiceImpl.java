@@ -34,4 +34,12 @@ public class QuestionServiceImpl implements QuestionService {
 		q.setQuestionId(0);
 		return questionRepo.save(q);
 	}
+
+	@Override
+	public List<Question> saveMultiple(List<Question> questions) {
+		questions.forEach(question -> {
+			save(question);
+		});
+		return questions;
+	}
 }

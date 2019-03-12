@@ -14,12 +14,7 @@ public class SurveyQuestionsJunctionServiceImpl implements SurveyQuestionsJuncti
 	@Autowired
 	private SurveyQuestionsJunctionRepo surveyQuestionsJunctionRepo;
 
-//	@Override
-//	public Survey save(Survey s) {
-//		s.setSurveyId(0);
-//		return surveyRepo.save(s);
-//	}
-	
+
 	@Override
 	public SurveyQuestionsJunction save(SurveyQuestionsJunction sqj) {
 		sqj.setId(0);
@@ -56,6 +51,14 @@ public class SurveyQuestionsJunctionServiceImpl implements SurveyQuestionsJuncti
 	@Override
 	public List<SurveyQuestionsJunction> findByQuestionIdQuestionId(int questionId) {
 		return surveyQuestionsJunctionRepo.findByQuestionIdQuestionId(questionId);
+	}
+
+	@Override
+	public List<SurveyQuestionsJunction> saveMultiple(List<SurveyQuestionsJunction> surveyQuestionsJunctions) {
+		surveyQuestionsJunctions.forEach(surveyQuestionsJunction -> {
+			save(surveyQuestionsJunction);
+		});
+		return surveyQuestionsJunctions;
 	}
 
 }

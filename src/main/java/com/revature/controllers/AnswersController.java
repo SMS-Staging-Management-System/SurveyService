@@ -31,34 +31,28 @@ public class AnswersController {
 		return answerService.findAll();
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public Answers findById(@PathVariable int id) {
 		return answerService.findById(id);
 	}
 
-	
-	
-	@GetMapping("question/{questionId}")
+	@GetMapping("/question/{questionId}")
 	public List<Answers> findByQuestionId(@PathVariable int questionId) {
 		return answerService.findByQuestionId(questionId);
 	}
-	
-	
 	
 	@PostMapping
 	public Answers save(@Valid @RequestBody Answers A) {
 		return answerService.save(A);
 	}
 	
-	@PostMapping("multi-answers")
+	@PostMapping("/multi-answers")
 	public List<Answers> multipleAnswers(@RequestBody List<Answers> answers) {
 		return answerService.saveMultiple(answers);
-		
 	}
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<String> handleExceptions(Exception e) {
-		
 		return new ResponseEntity<String>("An error has occured", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 

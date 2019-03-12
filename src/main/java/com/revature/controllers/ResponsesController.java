@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Responses;
-import com.revature.models.Survey;
 import com.revature.services.ResponsesService;
 
 @RestController
@@ -43,7 +42,12 @@ public class ResponsesController {
     public List<Responses> findByEmail(@Valid @RequestBody String email) {
         return responseService.findByUserEmail(email);
     }
-    
+
+	@PostMapping("/multi-response")
+	public List<Responses> multipleQuestions(@RequestBody List<Responses> responses) {
+		return responseService.saveMultiple(responses);
+	}
+
 	@PostMapping
 	public int save(@Valid @RequestBody Responses r) {
 		Responses responses = responseService.save(r);

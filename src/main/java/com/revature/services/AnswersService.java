@@ -2,12 +2,7 @@ package com.revature.services;
 
 
 import java.util.List;
-import java.util.Set;
-
-
 import com.revature.models.Answers;
-
-
 
 public interface AnswersService {
 
@@ -19,8 +14,5 @@ public interface AnswersService {
     Answers findById(int id);
     List<Answers> findByQuestionId(int questionId);
     List<Answers> saveMultiple(List<Answers> answers);
-	
-	
-	
-	
+
 }

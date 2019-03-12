@@ -36,6 +36,11 @@ public class QuestionController {
 	public List<Question> findByType(@PathVariable int typeId) {
 		return questionService.findByType(typeId);
 	}
+	
+	@PostMapping("/multi-question")
+	public List<Question> multipleQuestions(@RequestBody List<Question> questions) {
+		return questionService.saveMultiple(questions);
+	}
 
 	@PostMapping
 	public Question save(@Valid @RequestBody Question q) {

@@ -6,6 +6,7 @@ import com.revature.models.SurveyQuestionsJunction;
 
 public interface SurveyQuestionsJunctionService {
 	SurveyQuestionsJunction save(SurveyQuestionsJunction sqj);
+	List<SurveyQuestionsJunction> saveMultiple(List<SurveyQuestionsJunction> surveyQuestionsJunctions);
 	SurveyQuestionsJunction update(SurveyQuestionsJunction sqj);
 	SurveyQuestionsJunction delete(SurveyQuestionsJunction sqj);
 	
