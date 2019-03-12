@@ -12,4 +12,6 @@ public interface ResponsesService {
 	Responses save(Responses r);
 	Responses update(Responses r);
 	Responses delete(Responses r);
+	List<Responses> saveMultiple(List<Responses> responses);
+	
 }

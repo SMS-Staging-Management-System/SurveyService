@@ -53,4 +53,12 @@ public class ResponsesServiceImpl implements ResponsesService {
 		return null;
 	}
 
+	@Override
+	public List<Responses> saveMultiple(List<Responses> responses) {
+		responses.forEach(response -> {
+			save(response);
+		});
+		return responses;
+	}
+
 }

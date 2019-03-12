@@ -42,6 +42,11 @@ public class SurveyQuestionsJunctionController {
 		return surveyQuestionsJunctionService.findByQuestionIdQuestionId(id);
 	}
 
+	@PostMapping("/multi-question")
+	public List<SurveyQuestionsJunction> multipleQuestions(@RequestBody List<SurveyQuestionsJunction> surveyQuestionsJunctions) {
+		return surveyQuestionsJunctionService.saveMultiple(surveyQuestionsJunctions);
+	}
+
 	@PostMapping
 	public int save(@Valid @RequestBody SurveyQuestionsJunction sqj) {
 		SurveyQuestionsJunction surveyQuestionsJunction = surveyQuestionsJunctionService.save(sqj);
