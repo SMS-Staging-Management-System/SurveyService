@@ -188,12 +188,12 @@ INSERT INTO responses (survey_id, answer_id, user_email) VALUES (1, 32, null);
 INSERT INTO responses (survey_id, answer_id, user_email) VALUES (1, 35, null);
 
 -- Insert Survey 2
-INSERT INTO surveys (title, description, date_created, "template", published) VALUES ('Staging Manager Evaluation', 'A survey for associates in staging to evaluate the stagin manager.', '03-07-2019', TRUE, TRUE);
+INSERT INTO surveys (title, description, date_created, "template", published) VALUES ('Staging Manager Evaluation', 'A survey for associates in staging to evaluate the staging manager.', '03-07-2019', TRUE, TRUE);
 INSERT INTO questions (question, type_id) VALUES ('Name (Optional)', 5);
 INSERT INTO questions (question, type_id) VALUES ('Email (Optional)', 5);
 INSERT INTO questions (question, type_id) VALUES ('How many weeks have you been in staging?', 3);
-INSERT INTO questions (question, type_id) VALUES ('Has your time in staging been productive? ', 7);
-INSERT INTO questions (question, type_id) VALUES ('How well has the staging manager helped you with being prepared for interviews?', 5);
+INSERT INTO questions (question, type_id) VALUES ('My time in staging been productive.', 6);
+INSERT INTO questions (question, type_id) VALUES ('How well has the staging manager helped you with being prepared for interviews?', 4);
 INSERT INTO questions (question, type_id) VALUES ('Any additional comments regarding above ratings?', 5);
 INSERT INTO questions (question, type_id) VALUES ('Any overall feedback?', 5);
 INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (2, 12, 1);
@@ -214,7 +214,7 @@ INSERT INTO answers (answer, question_id) VALUES ('7 Weeks', 14);
 INSERT INTO answers (answer, question_id) VALUES ('8 Weeks', 14);
 INSERT INTO answers (answer, question_id) VALUES ('9 Weeks', 14);
 INSERT INTO answers (answer, question_id) VALUES ('10 Weeks', 14);
-INSERT INTO answers (answer, question_id) VALUES ('>10 Weekss', 14);
+INSERT INTO answers (answer, question_id) VALUES ('>10 Weeks', 14);
 INSERT INTO answers (answer, question_id) VALUES ('Strongly Agree', 15);
 INSERT INTO answers (answer, question_id) VALUES ('Agree', 15);
 INSERT INTO answers (answer, question_id) VALUES ('Disagree', 15);
@@ -248,6 +248,11 @@ INSERT INTO questions (question, type_id) VALUES ('Are you prepared to start wor
 INSERT INTO questions (question, type_id) VALUES ('How smooth was the transition to virtual staging?', 4);
 INSERT INTO questions (question, type_id) VALUES ('Any additional comments regarding above ratings?', 5);
 INSERT INTO questions (question, type_id) VALUES ('Any overall feedback?', 5);
+INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (3, 19, 1);
+INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (3, 20, 2);
+INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (3, 21, 3);
+INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (3, 22, 4);
+INSERT INTO junction_survey_questions (survey_id, question_id, question_order) VALUES (3, 23, 5);
 INSERT INTO answers (answer, question_id) VALUES ('Yes', 20);
 INSERT INTO answers (answer, question_id) VALUES ('No', 20);
 INSERT INTO answers (answer, question_id) VALUES ('1', 21);
