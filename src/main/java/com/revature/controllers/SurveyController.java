@@ -39,8 +39,8 @@ public class SurveyController {
 	}
 
 	@PostMapping
-	public int save(@Valid @RequestBody Survey s) {
+	public Survey save(@Valid @RequestBody Survey s) {
 		Survey survey = surveyService.save(s);
-		return survey.getSurveyId();
+		return survey;
 	}
 }
