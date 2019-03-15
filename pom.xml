@@ -95,6 +95,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.revature.</groupId>
+			<artifactId>CognitoAuth</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -123,6 +128,10 @@
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
+		</repository>
+		<repository>
+			<id>my-repo-bucket-release</id>
+			<url>https://s3.amazonaws.com/sms-cognito-auth</url>
 		</repository>
 	</repositories>
 
