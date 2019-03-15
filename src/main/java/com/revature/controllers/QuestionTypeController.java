@@ -23,7 +23,7 @@ public class QuestionTypeController {
 		return questionTypeService.findAll();
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public QuestionType findById(@PathVariable int id) {
 		return questionTypeService.findById(id);
 	}
