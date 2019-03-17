@@ -96,7 +96,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.revature.</groupId>
+			<groupId>com.revature</groupId>
 			<artifactId>CognitoAuth</artifactId>
 			<version>0.0.1</version>
 		</dependency>
