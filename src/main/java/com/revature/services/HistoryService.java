@@ -17,6 +17,8 @@ public interface HistoryService {
 	
 	List<History> findIncomplete();
 
-	History save(History s);
+	History save(History h);
+	
+	History update(History h);
 
 }
