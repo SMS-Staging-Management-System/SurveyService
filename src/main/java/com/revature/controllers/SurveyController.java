@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.cognito.annotations.CognitoAuth;
+import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.Survey;
 import com.revature.services.SurveyService;
 
@@ -38,6 +40,7 @@ public class SurveyController {
 		return surveyService.findByTitle(title);
 	}
 
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {
 		Survey survey = surveyService.save(s);

@@ -96,7 +96,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.revature.</groupId>
+			<groupId>com.revature</groupId>
 			<artifactId>CognitoAuth</artifactId>
 			<version>0.0.1</version>
 		</dependency>
@@ -131,7 +131,7 @@
 		</repository>
 		<repository>
 			<id>my-repo-bucket-release</id>
-			<url>https://s3.amazonaws.com/sms-cognito-auth</url>
+			<url>https://s3.amazonaws.com/sms-cognito-auth/release</url>
 		</repository>
 	</repositories>
 
