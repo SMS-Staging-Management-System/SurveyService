@@ -131,7 +131,7 @@
 		</repository>
 		<repository>
 			<id>my-repo-bucket-release</id>
-			<url>https://s3.amazonaws.com/sms-cognito-auth</url>
+			<url>https://s3.amazonaws.com/sms-cognito-auth/release</url>
 		</repository>
 	</repositories>
 
