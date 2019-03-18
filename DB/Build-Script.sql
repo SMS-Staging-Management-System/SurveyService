@@ -460,6 +460,7 @@ INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'hankzimmer7@gmail.com', '03-01-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'dunieskior@gmail.com', '03-01-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'kyserrecchia@gmail.com', '03-01-2019', null);
+INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'kserrec@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'abatson94@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'agrav12825@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (4, 'dfeli014@fiu.edu', '03-18-2019', null);
@@ -475,6 +476,7 @@ INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'hankzimmer7@gmail.com', '03-09-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'dunieskior@gmail.com', '03-09-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'kyserrecchia@gmail.com', '03-09-2019', null);
+INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'kserrec@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'abatson94@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'agrav12825@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (5, 'dfeli014@fiu.edu', '03-18-2019', null);
@@ -489,6 +491,8 @@ INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'srtucker28@icloud.com', '03-11-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'hankzimmer7@gmail.com', '03-11-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'dunieskior@gmail.com', '03-11-2019', null);
+INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'kyserrecchia@gmail.com', '03-11-2019', null);
+INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'kserrec@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'abatson94@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'agrav12825@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'dfeli014@fiu.edu', '03-18-2019', null);
@@ -497,4 +501,3 @@ INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'andrewhsoftware@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'mohamedwomar21@gmail.com', '03-18-2019', null);
 INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'juan.melendez3.14@gmail.com', '03-18-2019', null);
-INSERT INTO survey_history (survey_id, user_email, date_assigned, date_completed) VALUES (6, 'kyserrecchia@gmail.com', '03-11-2019', null);
