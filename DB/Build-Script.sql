@@ -257,7 +257,7 @@ INSERT INTO answers (answer, question_id) VALUES ('Week 10', 26);
 INSERT INTO answers (answer, question_id) VALUES ('Week 11', 26);
 INSERT INTO answers (answer, question_id) VALUES ('Week 12', 26);
 INSERT INTO answers (answer, question_id) VALUES ('Week 13', 26);
-INSERT INTO answers (answer, question_id) VALUES ('Week 14', 26);
+INSERT INTO answers (answer, question_id) VALUES ('Week 14 or Later', 26);
 INSERT INTO answers (answer, question_id) VALUES ('1', 27);
 INSERT INTO answers (answer, question_id) VALUES ('2', 27);
 INSERT INTO answers (answer, question_id) VALUES ('3', 27);
