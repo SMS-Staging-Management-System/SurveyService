@@ -2,11 +2,6 @@
 
 Survey API for SMS
 
-## Deployed At
-
-* Client-side User Interface: TO BE ADDED
-* Server-side API: http://ec2-18-224-20-187.us-east-2.compute.amazonaws.com:8092/api/swagger-ui.html
-
 ## Group Members
 
 * Lori Oliver
