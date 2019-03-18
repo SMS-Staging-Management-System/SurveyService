@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,13 @@ public class HistoryServiceImpl implements HistoryService {
 		return historyRepo.save(h);
 	}
 
+	@Override
+	public History update(History h) {
+		Date completedDate = new Date();
+		History historyToUpdate = historyRepo.getOne(h.getHistoryId());
+		historyToUpdate.setDateCompleted(completedDate);
+//		System.out.println("Current date: " + completedDate);
+//		System.out.println("Updated object: " + historyToUpdate);
+		return historyRepo.save(historyToUpdate);
+	}
 }

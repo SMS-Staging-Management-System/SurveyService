@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,8 +55,15 @@ public class HistoryController {
 	}
 
 	@PostMapping
-	public History save(@Valid @RequestBody History s) {
-		History history = historyService.save(s);
+	public History save(@Valid @RequestBody History h) {
+		History history = historyService.save(h);
+		return history;
+	}
+	
+	@PatchMapping("/taken")
+	public History update(@Valid @RequestBody History h) {
+		History history = historyService.update(h);
+		System.out.println("Success");
 		return history;
 	}
 }
