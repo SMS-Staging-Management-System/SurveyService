@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.cognito.annotations.CognitoAuth;
+import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.Question;
 import com.revature.services.QuestionService;
 
@@ -37,11 +39,13 @@ public class QuestionController {
 		return questionService.findByType(typeId);
 	}
 	
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping("/multi-question")
 	public List<Question> multipleQuestions(@RequestBody List<Question> questions) {
 		return questionService.saveMultiple(questions);
 	}
 
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Question save(@Valid @RequestBody Question q) {
 		Question question = questionService.save(q);
