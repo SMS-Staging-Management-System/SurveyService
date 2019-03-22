@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.cognito.annotations.CognitoAuth;
+import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.History;
 import com.revature.services.HistoryService;
 
@@ -54,6 +56,7 @@ public class HistoryController {
 		return historyService.findIncomplete();
 	}
 
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public History save(@Valid @RequestBody History h) {
 		History history = historyService.save(h);
