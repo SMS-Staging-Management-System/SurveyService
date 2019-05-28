@@ -1,5 +1,7 @@
 package com.revature.repos;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,5 +19,7 @@ public interface HistoryRepo extends JpaRepository<History, Integer> {
 
 	@Query(value = "SELECT * FROM survey.survey_history WHERE date_completed IS NULL", nativeQuery = true)
 	List<History> findIncomplete();
+
+	Page<History> findAllBySurveyId(int surveyId, Pageable pageable);
 
 }

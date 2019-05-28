@@ -5,6 +5,10 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,12 +53,18 @@ public class HistoryController {
 		return historyService.findCompleted();
 	}
 	
+	@GetMapping("/pageable/{surveyId}/{pageId}")
+	public Page<History> findAllBySurveyId(@PathVariable int pageId, @PathVariable int surveyId) {
+		Pageable firstPageWithTwoElements = PageRequest.of(pageId, 5, Sort.by("surveyId"));
+		return historyService.findAllBySurveyId(surveyId,firstPageWithTwoElements);
+	} 
+	
 	@GetMapping("/incomplete")
 	public List<History> findIncomplete() {
 		return historyService.findIncomplete();
 	}
 
-	@PostMapping
+	@PostMapping 
 	public History save(@Valid @RequestBody History h) {
 		History history = historyService.save(h);
 		return history;
