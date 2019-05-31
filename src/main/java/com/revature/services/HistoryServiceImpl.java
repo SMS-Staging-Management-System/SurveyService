@@ -2,8 +2,13 @@ package com.revature.services;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.History;
@@ -60,5 +65,12 @@ public class HistoryServiceImpl implements HistoryService {
 //		System.out.println("Current date: " + completedDate);
 //		System.out.println("Updated object: " + historyToUpdate);
 		return historyRepo.save(historyToUpdate);
+	}
+
+
+	@Override
+	public Page<History> findAllBySurveyId(int surveyId, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return historyRepo.findAllBySurveyId(surveyId,pageable);
 	}
 }
