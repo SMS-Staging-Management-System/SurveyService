@@ -55,7 +55,7 @@ public class HistoryController {
 	
 	@GetMapping("/pageable/{surveyId}/{pageId}")
 	public Page<History> findAllBySurveyId(@PathVariable int pageId, @PathVariable int surveyId) {
-		Pageable firstPageWithTwoElements = PageRequest.of(pageId, 5, Sort.by("surveyId"));
+		Pageable firstPageWithTwoElements = PageRequest.of(pageId, 7, Sort.by("dateAssigned"));
 		return historyService.findAllBySurveyId(surveyId,firstPageWithTwoElements);
 	} 
 	
