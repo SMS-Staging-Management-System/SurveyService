@@ -1,6 +1,11 @@
 package com.revature.services;
 
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.revature.models.History;
 
 public interface HistoryService {
@@ -20,5 +25,7 @@ public interface HistoryService {
 	History save(History h);
 	
 	History update(History h);
+
+	Page<History> findAllBySurveyId(int surveyId, Pageable pageable);
 
 }
