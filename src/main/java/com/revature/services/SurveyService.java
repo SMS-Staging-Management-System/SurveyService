@@ -10,7 +10,7 @@ public interface SurveyService {
 	
 	List<Survey> findAll();
 	Survey findById(int id);
-	//List<Survey> findByTitle(String title);
+	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
 }
