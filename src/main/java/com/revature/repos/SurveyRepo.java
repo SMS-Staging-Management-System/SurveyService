@@ -7,8 +7,8 @@ import com.revature.models.Survey;
 import java.util.List;
 
 public interface SurveyRepo extends JpaRepository<Survey, Integer> {
-	@Query("From surveys WHERE title LIKE CONCAT('%',:title,'%')")
-	 List<Survey> findByTitle(String title);
+//	@Query("From survey WHERE title LIKE CONCAT('%',:title,'%')")
+//	 List<Survey> findByTitle(String title);
 	
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	
