@@ -40,11 +40,21 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveyRepo.getOne(id);
 	}
 
+//	@Override
+//	public List<Survey> findByTitle(String title) {
+//		
+//		return surveyRepo.findByTitle(title);
+//	}
+	
 	@Override
-	public List<Survey> findByTitle(String title) {
-		return surveyRepo.findByTitle(title);
+	public List<Survey> findByTitleContainingIgnoreCase(String title) {
+		return surveyRepo.findByTitleContainingIgnoreCase(title);
 	}
-
+	
+	@Override
+	public List<Survey> findByDescriptionContainingIgnoreCase(String description) {
+		return surveyRepo.findByDescriptionContainingIgnoreCase(description);
+	}
 	@Override
 	public Survey save(Survey s) {
 		s.setSurveyId(0);
