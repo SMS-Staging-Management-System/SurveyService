@@ -31,8 +31,8 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 
 	@Override
-	public List<Survey> findAll() {
-		return surveyRepo.findAll();
+	public List<Survey> findAllOrderByDateCreatedDesc() {
+		return surveyRepo.findAllOrderByDateCreatedDes();
 	}
 
 	@Override
@@ -47,12 +47,12 @@ public class SurveyServiceImpl implements SurveyService {
 //	
 	@Override
 	public List<Survey> findByTitleContainingIgnoreCase(String title) {
-		return surveyRepo.findByTitleContainingIgnoreCase(title);
+		return surveyRepo.findByTitleContainingIgnoreCaseOrderByDateCreatedDesc(title);
 	}
 	
 	@Override
 	public List<Survey> findByDescriptionContainingIgnoreCase(String description) {
-		return surveyRepo.findByDescriptionContainingIgnoreCase(description);
+		return surveyRepo.findByDescriptionContainingIgnoreCaseOrderByDateCreatedDesc(description);
 	}
 	@Override
 	public Survey save(Survey s) {

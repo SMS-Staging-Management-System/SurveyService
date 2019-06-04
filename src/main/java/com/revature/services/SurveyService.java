@@ -8,7 +8,7 @@ public interface SurveyService {
 	Survey update(Survey s);
 	Survey delete(Survey s);
 	
-	List<Survey> findAll();
+	List<Survey> findAllOrderByDateCreatedDesc();
 	Survey findById(int id);
 //	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
