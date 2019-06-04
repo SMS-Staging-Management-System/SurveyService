@@ -27,7 +27,7 @@ public class SurveyController {
 	// All Surveys and Templates
 	@GetMapping("")
 	public List<Survey> findAll() {
-		return surveyService.findAll();
+		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 
 	@GetMapping("/{id}")
