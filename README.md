@@ -11,6 +11,11 @@ Survey API for SMS
 * Scott Tucker
 * Dunieski Otano
 * Hank Zimmer
+* Joseph Sperduto
+* Ric Davis
+* Ghiberty J. Meza
+* Karmanya Suryavanshi
+* Shreyas Kathavate
 
 ## Description
 
