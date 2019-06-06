@@ -15,8 +15,8 @@ public class SurveyServiceImpl implements SurveyService {
 	@Autowired
 	private SurveyRepo surveyRepo;
 	
-	@Autowired
-	private CognitoUtil cognitoUtil;
+//	@Autowired
+//	private CognitoUtil cognitoUtil;
 
 	@Override
 	public Survey update(Survey s) {
