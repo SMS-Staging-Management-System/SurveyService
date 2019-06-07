@@ -11,8 +11,8 @@ cognito:
   key: ${COGNITO_KEY}
     
 spring:
-  #profiles: 
-    #active: ${DEPLOYMENT_STAGE}
+  profiles: 
+    active: dev #${DEPLOYMENT_STAGE}
   application:
     name: survey-service
   datasource:
@@ -54,28 +54,22 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8888}/eureka/
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
   instance:
     lease-renewal-interval-in-seconds: 20
     lease-expiration-duration-in-seconds: 30
     
 ---
 spring:
-  profiles: prod
+  profiles: dev
 
 server:
   port: 8092
   
-eureka:
-  client:
-    enabled: false
-    
-ribbon:
-  eureka: 
-    enabled: false
+
     
 user-service:
   ribbon:
-    listOfServers: ${GATEWAY_URL}
+    #listOfServers: ${GATEWAY_URL}
     
 
