@@ -152,7 +152,7 @@ INSERT INTO answers (answer, question_id) VALUES ('Strongly Agree', 7);
 INSERT INTO answers (answer, question_id) VALUES ('Agree', 7);
 INSERT INTO answers (answer, question_id) VALUES ('Disagree', 7);
 INSERT INTO answers (answer, question_id) VALUES ('Strongly Disagree', 7);
-INSERT INTO answers (answer, question_id) VALUES ('N/A', 6);
+INSERT INTO answers (answer, question_id) VALUES ('N/A', 7);
 INSERT INTO answers (answer, question_id) VALUES ('Strongly Agree', 8);
 INSERT INTO answers (answer, question_id) VALUES ('Agree', 8);
 INSERT INTO answers (answer, question_id) VALUES ('Disagree', 8);
