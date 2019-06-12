@@ -27,7 +27,7 @@ public class SurveyController {
 	// All Surveys and Templates
 	@GetMapping("")
 	public List<Survey> findAll() {
-		return surveyService.findAll();
+		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 
 	@GetMapping("/{id}")
@@ -35,11 +35,20 @@ public class SurveyController {
 		return surveyService.findById(id);
 	}
 
+//	@GetMapping("/title/{title}")
+//	public List<Survey> findByTitle(@PathVariable String title) {
+//		return surveyService.findByTitle(title);
+//	}
+	
 	@GetMapping("/title/{title}")
-	public List<Survey> findByTitle(@PathVariable String title) {
-		return surveyService.findByTitle(title);
+	public List<Survey> findByTitleContainingIgnoreCase(@PathVariable String title) {
+		return surveyService.findByTitleContainingIgnoreCase(title);
 	}
 
+	@GetMapping("/description/{description}")
+	public List<Survey> findByDescriptionContainingIgnoreCase(@PathVariable String description) {
+		return surveyService.findByDescriptionContainingIgnoreCase(description);
+	}
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {

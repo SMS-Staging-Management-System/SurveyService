@@ -30,6 +30,7 @@ public class EditorController {
 	@GetMapping
 	List<Editor> findAll() {
 		return eSI.findAll();
+		
 	}
 
 	// Obtain id from URL and pass it to method find editor by id

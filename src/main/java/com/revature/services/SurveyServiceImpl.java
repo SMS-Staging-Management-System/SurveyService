@@ -31,8 +31,8 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 
 	@Override
-	public List<Survey> findAll() {
-		return surveyRepo.findAll();
+	public List<Survey> findAllOrderByDateCreatedDesc() {
+		return surveyRepo.findAllOrderByDateCreatedDes();
 	}
 
 	@Override
@@ -40,11 +40,20 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveyRepo.getOne(id);
 	}
 
+//	@Override
+//	public List<Survey> findByTitle(String title) {
+//		return surveyRepo.findByTitle(title);
+//	}
+//	
 	@Override
-	public List<Survey> findByTitle(String title) {
-		return surveyRepo.findByTitle(title);
+	public List<Survey> findByTitleContainingIgnoreCase(String title) {
+		return surveyRepo.findByTitleContainingIgnoreCaseOrderByDateCreatedDesc(title);
 	}
-
+	
+	@Override
+	public List<Survey> findByDescriptionContainingIgnoreCase(String description) {
+		return surveyRepo.findByDescriptionContainingIgnoreCaseOrderByDateCreatedDesc(description);
+	}
 	@Override
 	public Survey save(Survey s) {
 		s.setSurveyId(0);

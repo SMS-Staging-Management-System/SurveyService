@@ -2,9 +2,9 @@
 
 --Make the schema
 DROP SCHEMA IF EXISTS survey CASCADE;
-CREATE SCHEMA survey;
+CREATE SCHEMA survey_service;
 
-SET SCHEMA 'survey';
+SET SCHEMA 'survey_service';
 
 -------------------
 -- Create Tables --
