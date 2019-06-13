@@ -1,7 +1,7 @@
 -- Code to initially create and populate the sql database
 
 --Make the schema
-DROP SCHEMA IF EXISTS survey CASCADE;
+DROP SCHEMA IF EXISTS survey_service CASCADE;
 CREATE SCHEMA survey_service;
 
 SET SCHEMA 'survey_service';
