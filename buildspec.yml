@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: openjdk8
   post_build:
     commands:
       - mvn -Dmaven.test.skip=true clean package
@@ -8,4 +11,6 @@ artifacts:
   files:
     - '**/*'
   base-directory: 'target'
+ 
+
  
