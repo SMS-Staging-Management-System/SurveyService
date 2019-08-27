@@ -12,7 +12,7 @@ cognito:
     
 spring:
   profiles:
-    active: ${DEPLOYMENT_STAGE: dev}
+    active: ${DEPLOYMENT_STAGE:dev}
   application:
     name: survey-service
 
