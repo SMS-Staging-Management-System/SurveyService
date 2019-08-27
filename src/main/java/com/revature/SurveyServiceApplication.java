@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableDiscoveryClient
 @SpringBootApplication
 @EnableSwagger2
 @EnableFeignClients

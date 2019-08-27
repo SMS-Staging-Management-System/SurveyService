@@ -39,13 +39,6 @@ spring:
 server:
   port: 8092
 
-eureka:
-  client:
-    service-url:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8888}/eureka/
-  instance:
-    lease-renewal-interval-in-seconds: 20
-    lease-expiration-duration-in-seconds: 30    
 ---
 spring:
   profiles: dev    
