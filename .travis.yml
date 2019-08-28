@@ -11,17 +11,18 @@ jobs:
   include:
   - stage: build
     script:
-    - mvn package -Dspring.profiles=dev -DskipTests --quiet
+    - mvn package -DskipTests --quiet
   - stage: test
     script:
-    - mvn test -Dspring.profiles=dev --quiet
+    - mvn test --quiet
   - stage: quality
     script:
     - git fetch --all
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=SMS-Staging-Management_InterviewService
-      -Dspring.profiles=dev --quiet
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=SMS-Staging-Management_SurveyService
+      --quiet
 env:
   global:
+  - DEPLOYMENT_STAGE: test
   - secure: KAV0lmuThgmB8y+KKrNwXwRLntSUdifsQRBocQfJuRiilS9u1HOKBtwyhqxl5g3FJuUywzxI6vCEfVnoCh53HYGEVYZKsJTJRoJyvLBzZxXaoRNEuA/uebvhxGVSYPcatiiGm2sB3tCgJ0RW+mdeDLaZ0S5EBsOh8CV93v/ZjyRnj83VmdeVN6WXXYjQ7yko7nn/TiwoX27lXlmzY6cz4qDFxqRGxK8hu9lBxe1DST0UBf4VtebkpcV4ut+xuTwd/cFi0Vq1rUyWzBirjBEkxVY8uybyU24ypijQ/IhDv1m06pURmsTmpaJKfKjxuru/+nOtBDQNipL4XxfNT+r7MpUxieVA9PiJkyjN3RauZeLuT/K4P/HuYsKe/Ddeh4lhNXcrWrRPCdEAsZ0lRWeqcesZofqVppHCMkGbbjwLlSpFlgbDG/grNEsOXYxuRuOLbtdHG9ESgLFaSj5MqI6cpKaKGnpvv1XGPVOuobyKKYWT/1VKijq4AZTECc7c6Wa8PojpEsL8AgSFVpru0yoieIKf9R9oTYdc0ObIwtJtLKvEExcm/Z8fqv/hHvM0sr4VLgRJ4SQMCOIEaRjRCB0o1eUhegB5OjYcd3KpErv8Ga/72BKNUj8PbnMqF8KmtQupRdQP4n5zmbdED/inNCMilIHQ+jY8LrgNRTTcGkjEEj8=
   - secure: tldPve5puyJHzjbZKLyiOAq9eSRrbjNVCbI169K6OVOK0zvnZVh1/e139zfor/KkvRRgBsrOPc9rbxS6CEqYjUKCCtGqxazey7sYF1YEobFr+mgLYD2fRwqp2XEXk2TlDurS9q6y01z1mWBbKQcTD3ZmJjCN2o6/h/EklgK6KFjTjtVwZaUDd9VzFOx8H+4IS6eQDIjKACnGzpbPFEOsuS4L6WUc+vYkMiTQa2chO7zUlOnxBC3fvayVMkJ7RcbzyYogRNhs/iXl6ErgF297E8Gf34TAwBT1pRDDc6cusgqaoeS6Hu+EpWO46ohJqTk9viGM7CIdTkTmTq9eQf4Eyi0SOkDnxciKhc9MTQVFuXOpZMF+0kvLLHEyQlFl6sBXcs6spCT5EdusGQpKOhp/VvjtB+MVTXSyey6qrDovgXxc3EuSkmuw/qVVj7wrW8ZG8yBzinKRRImi9LCxd+8h5YAiV88qh1aVN9Ihjy76hLFpBuvRDiiIDOQHLgCzNi0olEnbD6agaFuSxCQIsVdyKc/yp0X5KCgTupxgZf/ScQPB8kTyKTfJv1pMdyMiOQasDhaxAbDvWDiW9Ccz09zfMcE3r59rSdQPF45BbJ5KnDeEEEv5DjQ57EnkBMlbuG506O3vlZBQon3Nkh/l0ZFPEycV3hMaIWTVsmSdcJ9KfNA=
   - secure: KO4JcaTsjLLuORem2baj92+1XW53SBM+QiHeSwkogL1iu75jCCH4JrcBHzZ4Oqe2c9S54Qk1sGZC7aCjg2Is0SRiTy9pemgnG8IubWjVnryhCegwCKXEhuCGUx3qVREDTfMIfWMk2JHmzG4l7HKXgumDtlAnQYRBI5PPen7B5jfwkZHVHmQqtEiFDUyQA9qMtzQ+7j392/qF5fjxAZbb/CAZ2MCRH6SXvSj4phSyw/G80gXMkDnIvJ80P8mNIrRCXFXoXYYgjTPMYjnkKVSZ6VijjjMpPVxO9sLvhAQ2qIx3gJbVojIJ8vgcD93rYwhozndSWcnrn0kyy/eq2bAK2ewgmiSef11cukz/3oyeA+YT5p4BLMEyDiSNVCFQCmh/b8CqQ7KxZjPSYSegRxjAo3ilcOjWUf53hKgWcX1265s8bopqj+kjyMBMGQjcvHG3nfAnsvfm3oCS9nIaNp5YDNCOxLqc2bVTNuz2vNSMW/szkLQxmUyMxWW8ZwXDWDIQPB8/KcWmNALBZ53SNecET5hSY4lQZKta6YfjgmiDYYx5g0scdJJxigjKXTjA6s6wJWzlP031Dp9G9ifbOobBEoIoUk8W4IrQ+4KjKMLn4MmQlGSJ38NZQdR/9HwCPdh19CIJY7ntqtg834He1/yuRZ/Z5kPaRw1NIzRtzAEzZtc=
