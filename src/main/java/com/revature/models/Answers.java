@@ -5,49 +5,51 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table(name= "answers")
+@Table(name = "answers")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-//@JsonFilter("depth_3")
+@JsonFilter("depth_6")
 public class Answers {
 
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+	private int answerId;
+
 	@NotNull
 	private String answer;
 	
-	
-	private int questionId;
-	
+	@ManyToOne
+	@JoinColumn(name="question_id")
+	private Question question;
+
 	public Answers() {
-		
 		super();
-	}
-	
-	public Answers(int id, String answer, int questionId) {
-		this.id=id;
-		this.answer=answer;
-		this.questionId=questionId;
-		
+		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-		return id;
+	public Answers(int answerId, @NotNull String answer, Question question) {
+		super();
+		this.answerId = answerId;
+		this.answer = answer;
+		this.question = question;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getAnswerId() {
+		return answerId;
+	}
+
+	public void setAnswerId(int answerId) {
+		this.answerId = answerId;
 	}
 
 	public String getAnswer() {
@@ -58,12 +60,12 @@ public class Answers {
 		this.answer = answer;
 	}
 
-	public int getquestionId() {
-		return questionId;
+	public Question getQuestion() {
+		return question;
 	}
 
-	public void setquestionId(int questionId) {
-		this.questionId = questionId;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 	@Override
@@ -71,8 +73,8 @@ public class Answers {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((answer == null) ? 0 : answer.hashCode());
-		result = prime * result + id;
-		result = prime * result + questionId;
+		result = prime * result + answerId;
+		result = prime * result + ((question == null) ? 0 : question.hashCode());
 		return result;
 	}
 
@@ -90,19 +92,21 @@ public class Answers {
 				return false;
 		} else if (!answer.equals(other.answer))
 			return false;
-		if (id != other.id)
+		if (answerId != other.answerId)
 			return false;
-		if (questionId != other.questionId)
+		if (question == null) {
+			if (other.question != null)
+				return false;
+		} else if (!question.equals(other.question))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Answers [id=" + id + ", answer=" + answer + ", questionId=" + questionId + "]";
+		return "Answers [answerId=" + answerId + ", answer=" + answer + "]";
 	}
-	
-	
-	
-	
+
+		
+
 }

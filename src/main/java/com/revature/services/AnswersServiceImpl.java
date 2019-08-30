@@ -22,7 +22,7 @@ public class AnswersServiceImpl implements AnswersService{
 
 	@Override
 	public Answers save(Answers A) {
-		A.setId(0);
+		A.setAnswerId(0);
 		return answersRepo.save(A);
 	}
 
@@ -50,8 +50,8 @@ public class AnswersServiceImpl implements AnswersService{
 	}
 
 	@Override
-	public List<Answers> findByQuestionId(int questionId) {
-		return answersRepo.findByQuestionId(questionId);
+	public List<Answers> findByQuestionQuestionId(int questionId) {
+		return answersRepo.findByQuestionQuestionId(questionId);
 	}
 
 	@Override
