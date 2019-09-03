@@ -39,6 +39,16 @@ public class SurveyServiceImpl implements SurveyService {
 	public List<Survey> findAllOrderByDateCreatedDesc() {
 		return surveyRepo.findAllOrderByDateCreatedDes();
 	}
+	
+	@Override
+	public List<Survey> findAllTemplateOrderByDateCreatedDesc() {
+		return surveyRepo.findAllTemplateOrderByDateCreatedDes();
+	}
+	
+	@Override
+	public List<Survey> findAllPublishedOrderByDateCreatedDesc() {
+		return surveyRepo.findAllPublishedOrderByDateCreatedDes();
+	}
 
 	@Override
 	public Survey findById(int id) {

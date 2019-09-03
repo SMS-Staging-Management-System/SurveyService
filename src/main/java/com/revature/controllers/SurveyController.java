@@ -29,6 +29,16 @@ public class SurveyController {
 	public List<Survey> findAll() {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
+	
+	@GetMapping("template")
+	public List<Survey> findAllTemplate() {
+		return surveyService.findAllTemplateOrderByDateCreatedDesc();
+	}
+	
+	@GetMapping("published")
+	public List<Survey> findAllPublished() {
+		return surveyService.findAllPublishedOrderByDateCreatedDesc();
+	}
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
