@@ -55,11 +55,6 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveyRepo.getOne(id);
 	}
 
-//	@Override
-//	public List<Survey> findByTitle(String title) {
-//		return surveyRepo.findByTitle(title);
-//	}
-//	
 	@Override
 	public List<Survey> findByTitleContainingIgnoreCase(String title) {
 		return surveyRepo.findByTitleContainingIgnoreCaseOrderByDateCreatedDesc(title);
@@ -101,14 +96,5 @@ public class SurveyServiceImpl implements SurveyService {
 
 		return survey;
 	}
-
-//	@Override
-//	public Survey saveVersionTwo(SurveyQuestionAndAnswers sqa) {
-//		Survey survey = sqa.getSurvey();
-//		List<Question> question = sqa.getQuestion();
-//		List<Answers> answers = sqa.getAnswers(); 
-//		
-//		
-//	}
 
 }
