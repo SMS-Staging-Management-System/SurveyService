@@ -5,7 +5,9 @@ addons:
   sonarcloud:
     organization: sms-staging-management-system
     token:
+      # user
       secure: "c75yfxItmXvZZxakIdjFc0Dt9fDHZ3TgzWqaRkXvl9Jjq1EStY5kyowsjnAT8RAPJbhQb6QsN1E0+6OG7jEO4n7q0BiaZj0W5BGNn1sOV9K41xJSRzpVVhYbj2S0j7+eM8oK6RdXx6IUxO0FykkzLJu8nEt5U97MNfFyiNmvepomXkfBsuo6SH7tFBJUw72Vgznb/SYh20GjseFcKRpGG+AfKWxrUxw2ClVr7zu8FACPRFjRD3EYcaM+LeqSWf38jUquwVCxXs/HfTcjbUWoswwJ7AGcWjHrylm4oU45YYllXu8DHafnnfoFl/j+S8K3FCjU928EOJ2bMdkykZMgLEZN3WpyP6+Okyse6lqXT2Mb7Hd7mKiXwIrEGRxGMBlTjS1AK/FskmeS0z1InfL8cpQO16qa8LW4SPFjJfx9SBsZxFJ762gItUsSBact4MxHC5tk0uzMTzQt494jAPUkqa46EBrmriH+qQeHWpijro/s3di44wmCe3wbede6IQ5/R6smtWyLQ6/jrWiCGx7sJZBOKpwcWFuA/BKlrnUzubfAa/Hh+r7RSDwVkKJgRU2zPCoiiYxRQKgt1zKjZVkK/O7L4CA26FyuHFKztFXdBgZKs8peEzKWlAWkHgk/53t3iyqlOhYrMyjrEF36UVXu8ALN7bAwBxujt3zUKrEz4jw="
+      # project
       secure: "YNveZUJKIcETpuwKQ4Ljyaat4SgfxwFZEfkOtQqOdBf3SN+SmAutcmclE6c8uBncFuFs6c0K6R3JRESFFc1soqHp7LhVuezOIzLqX7FR1JAgHIR+oNWX2HdVAGRyH4r0z+ljbgO1Uq7i3guYZ91YmAv2rmlkHi4ZjMZQrTBd7nAM1AmBz4OvVpR6mC+a1ECa3803P0LGoKjhkTPVJve5NFC6H7NUQB2yrfZIU2LTaxO4LnSZ3WZitXb8mS4Os4xyXNiOJChMO9t7VLqyB9mtRE2LNGmTrroQKCNq8+uJo3LQcdtmppZClh40YTGNasa2Q+1oiylwFux21OhFujMY9yeXo1teDizdo8SMVUs3JS0vDRVcm0Dtu00w2mCWr0EJjt9sYU858nMRqbLOjUIyPOqlasPqkgyWEJNN28bRXqjb1veU6S1tQxh18agzHD+KR/sxyUKKOHZfkz/1jhCJM/qtxQAfSfpg/Y2ruT+qAZANkRkJQj0tCAiJnp0kBz/xGC+TtJoPBBgZk/gP5XtBpzPpevsnq75aBANeHo07CvuLTDM1AMowHPguVlddWEikx2qASBjxGooS0ECVKkh7R0WWCir0KLCOSvLH8ZoOKI2faIb96w2JyXegYXNr9QU15ELmCfN47A0rmOAk3UEKmKreykdE7xtDyHSsqsfKKX0="
 jobs:
   include:
@@ -18,7 +20,7 @@ jobs:
   - stage: quality
     script:
     - git fetch --all
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=user_service_super_secret_key
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=SMS-SurveyService-Key
       --quiet
 env:
   global:
