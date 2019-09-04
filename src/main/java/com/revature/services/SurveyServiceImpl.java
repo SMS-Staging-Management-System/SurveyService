@@ -5,6 +5,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Answers;
@@ -25,13 +30,11 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Override
 	public Survey update(Survey s) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Survey delete(Survey s) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -41,14 +44,11 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 	
 	@Override
-	public List<Survey> findAllTemplateOrderByDateCreatedDesc() {
-		return surveyRepo.findAllTemplateOrderByDateCreatedDes();
+	public Page<Survey> findByTemplateOrderByDateCreatedDesc(String isTemplate, int pageNumber) {
+		Pageable page = PageRequest.of(pageNumber, 5, Sort.by(Order.desc("dateCreated")));
+		return surveyRepo.findByTemplate(Boolean.valueOf(isTemplate), page);
 	}
 	
-	@Override
-	public List<Survey> findAllPublishedOrderByDateCreatedDesc() {
-		return surveyRepo.findAllPublishedOrderByDateCreatedDes();
-	}
 
 	@Override
 	public Survey findById(int id) {

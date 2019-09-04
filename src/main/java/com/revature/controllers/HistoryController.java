@@ -45,7 +45,6 @@ public class HistoryController {
 	// Query for email. Uses post mapping so that the @ symbol can be send in the body rather than in the URL
 	@PostMapping("/email")
 	public List<History> findByEmail(@RequestBody String email) {
-		System.out.println(email);
 		return historyService.findByEmail(email);
 	}
 	

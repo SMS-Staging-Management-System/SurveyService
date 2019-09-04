@@ -5,11 +5,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.cognito.annotations.CognitoAuth;
@@ -30,14 +32,9 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
-	@GetMapping("template")
-	public List<Survey> findAllTemplate() {
-		return surveyService.findAllTemplateOrderByDateCreatedDesc();
-	}
-	
-	@GetMapping("published")
-	public List<Survey> findAllPublished() {
-		return surveyService.findAllPublishedOrderByDateCreatedDesc();
+	@GetMapping("template/{isTemplate}")
+	public Page<Survey> findByTemplate(@PathVariable String isTemplate, @RequestParam int page) {
+		return surveyService.findByTemplateOrderByDateCreatedDesc(isTemplate, page);
 	}
 
 	@GetMapping("/{id}")

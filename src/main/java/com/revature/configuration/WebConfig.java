@@ -43,18 +43,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/api/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
     
-
-	/*
-	 * Here we register the Hibernate4Module into an ObjectMapper, then set this
-	 * custom-configured ObjectMapper to the MessageConverter and return it to be
-	 * added to the HttpMessageConverters of our application
-	 */
 	public MappingJackson2HttpMessageConverter jacksonMessageConverter() {
 		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
 
 		ObjectMapper mapper = new ObjectMapper();
-		// Registering Hibernate5Module to support lazy objects
-//        mapper.registerModule(new Hibernate5Module());
 		SimpleFilterProvider depthFilters = new SimpleFilterProvider().addFilter("depth_1", new DeepFieldFilter(1))
 				.addFilter("depth_2", new DeepFieldFilter(2)).addFilter("depth_3", new DeepFieldFilter(3))
 				.addFilter("depth_4", new DeepFieldFilter(4)).addFilter("depth_5", new DeepFieldFilter(5))
@@ -68,7 +60,6 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		// Here we add our custom-configured HttpMessageConverter
 		converters.add(jacksonMessageConverter());
 	}
 }
