@@ -42,7 +42,7 @@ public class EditorController {
 	 /* Obtains email from URL and pass it to method to find editor by email. We used
 	@PostMapping because correct email cant be passed in using
 	GetMapping*/
-//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping("/email")
 	public List<Editor> findByEmail(@Valid @RequestBody String email) {
 		return eSI.findByEmail(email);
@@ -54,7 +54,7 @@ public class EditorController {
 	}
 
 	// Creates editor by calling method createEditor from EditorServiceImpl class
-//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Editor createEditor(@RequestBody Editor editor) {
 		return eSI.createEditor(editor);
@@ -62,14 +62,14 @@ public class EditorController {
 
 	// Updates editor by calling method updateEditor from the EditorServiceImpl
 	// class
-//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PatchMapping
 	public Editor updateEditor(@RequestBody Editor editor) {
 		return eSI.updateEditor(editor);
 	}
 
     ////Deletes editor by calling method updateEditor from the EditorServiceImpl class
-//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@DeleteMapping
 	public String deleteEditor(int id) {
 		return eSI.deleteEditor(id);

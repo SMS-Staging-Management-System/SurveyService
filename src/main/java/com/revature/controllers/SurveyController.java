@@ -60,7 +60,7 @@ public class SurveyController {
 		return surveyService.findByDescriptionContainingIgnoreCase(description);
 	}
 
-//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {
 		return surveyService.save(s);
