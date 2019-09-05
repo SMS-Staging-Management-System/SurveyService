@@ -38,7 +38,6 @@ public class SurveyQuestionsJunction {
 
 	public SurveyQuestionsJunction() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SurveyQuestionsJunction(int id, Survey survey, Question question, @NotNull int questionOrder) {

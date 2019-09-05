@@ -36,7 +36,6 @@ public class Question {
 
 	public Question() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Question(int questionId, @NotNull String question, @NotNull int typeId, List<Answers> answers) {

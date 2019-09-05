@@ -47,7 +47,6 @@ public class Survey {
 
 	public Survey() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, String creator,

@@ -57,7 +57,6 @@ public class Editor {
 
 	public Editor() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	

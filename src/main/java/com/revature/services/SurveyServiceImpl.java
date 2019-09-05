@@ -92,9 +92,7 @@ public class SurveyServiceImpl implements SurveyService {
 			newSqj.setQuestionOrder(i + 1);
 		}
 
-		Survey survey = surveyRepo.getOne(newSurvey.getSurveyId());
-
-		return survey;
+		return newSurvey;
 	}
 
 }
