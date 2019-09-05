@@ -13,7 +13,7 @@ public interface SurveyService {
 	
 	List<Survey> findAllOrderByDateCreatedDesc();
 	List<Survey> findAllTemplateOrderByDateCreatedDesc();
-	List<Survey> findAllPublishedOrderByDateCreatedDesc();
+//	List<Survey> findAllPublishedOrderByDateCreatedDesc();
 	Survey findById(int id);
 //	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);

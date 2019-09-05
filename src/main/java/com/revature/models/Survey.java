@@ -42,7 +42,7 @@ public class Survey {
 	
 	private boolean template;
 	
-	private boolean published;
+//	private boolean published;
 	
 	@OneToMany(mappedBy="survey", cascade=CascadeType.PERSIST)
 	private List<SurveyQuestionsJunction> questionJunctions;
@@ -63,7 +63,7 @@ public class Survey {
 		this.dateCreated = dateCreated;
 		this.closingDate = closingDate;
 		this.template = template;
-		this.published = published;
+//		this.published = published;
 		this.questionJunctions = questionJunctions;
 	}
 
@@ -123,13 +123,13 @@ public class Survey {
 		this.template = template;
 	}
 
-	public boolean isPublished() {
-		return published;
-	}
-
-	public void setPublished(boolean published) {
-		this.published = published;
-	}
+//	public boolean isPublished() {
+//		return published;
+//	}
+//
+//	public void setPublished(boolean published) {
+//		this.published = published;
+//	}
 
 	public List<SurveyQuestionsJunction> getQuestionJunctions() {
 		return questionJunctions;
@@ -147,7 +147,7 @@ public class Survey {
 		result = prime * result + ((creator == null) ? 0 : creator.hashCode());
 		result = prime * result + ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + (published ? 1231 : 1237);
+//		result = prime * result + (published ? 1231 : 1237);
 		result = prime * result + ((questionJunctions == null) ? 0 : questionJunctions.hashCode());
 		result = prime * result + surveyId;
 		result = prime * result + (template ? 1231 : 1237);
@@ -184,8 +184,8 @@ public class Survey {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (published != other.published)
-			return false;
+//		if (published != other.published)
+//			return false;
 		if (questionJunctions == null) {
 			if (other.questionJunctions != null)
 				return false;
@@ -207,7 +207,7 @@ public class Survey {
 	public String toString() {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
 				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", template=" + template
-				+ ", published=" + published + "]";
+				+  "]";
 	}
 
 	

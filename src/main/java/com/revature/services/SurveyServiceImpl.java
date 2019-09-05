@@ -49,10 +49,10 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveyRepo.findAllTemplateOrderByDateCreatedDes();
 	}
 	
-	@Override
-	public List<Survey> findAllPublishedOrderByDateCreatedDesc() {
-		return surveyRepo.findAllPublishedOrderByDateCreatedDes();
-	}
+//	@Override
+//	public List<Survey> findAllPublishedOrderByDateCreatedDesc() {
+//		return surveyRepo.findAllPublishedOrderByDateCreatedDes();
+//	}
 	
     @Override
     public Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, int pageNumber) {

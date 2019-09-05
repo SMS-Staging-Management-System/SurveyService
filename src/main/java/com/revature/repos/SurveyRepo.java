@@ -24,8 +24,8 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 	@Query("FROM Survey s WHERE s.template = true ORDER BY dateCreated DESC")
 	List<Survey> findAllTemplateOrderByDateCreatedDes();
 	
-	@Query("FROM Survey s WHERE s.published = true ORDER BY dateCreated DESC")
-	List<Survey> findAllPublishedOrderByDateCreatedDes();
+//	@Query("FROM Survey s WHERE s.published = true ORDER BY dateCreated DESC")
+//	List<Survey> findAllPublishedOrderByDateCreatedDes();
 	
 	 Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(Pageable page);
      

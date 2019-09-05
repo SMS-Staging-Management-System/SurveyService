@@ -48,10 +48,10 @@ public class SurveyController {
         return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
     }
     
-	@GetMapping("published")
-	public List<Survey> findAllPublished() {
-		return surveyService.findAllPublishedOrderByDateCreatedDesc();
-	}
+//	@GetMapping("published")
+//	public List<Survey> findAllPublished() {
+//		return surveyService.findAllPublishedOrderByDateCreatedDesc();
+//	}
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
