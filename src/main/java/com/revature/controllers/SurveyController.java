@@ -79,8 +79,13 @@ public class SurveyController {
 		return surveyService.save(s);
 	}
 	
-	@GetMapping("template/creator/{page}/")
-	public Page<Survey> findByCreatorIgnoreCaseAndTemplate(@RequestParam String creator, @PathVariable int page){
-		return surveyService.findByCreatorIgnoreCaseAndTemplate(creator, page);
-	}
+//	@GetMapping("template/creator/{creator}/")
+//	public Page<Survey> findByCreatorIgnoreCase(@PathVariable String creator){
+//		return surveyService.findByCreatorIgnoreCase(creator, 0);
+//	}
+    @GetMapping("template/creator/{title}/{page}")
+    public Page<Survey> findByCreatorIgnoreCase(@PathVariable String title,@PathVariable int page) {
+        System.out.println(page);
+        return surveyService.findByCreatorIgnoreCaseAndTemplate(title, page);
+    }
 }

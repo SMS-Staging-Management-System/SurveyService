@@ -21,5 +21,5 @@ public interface SurveyService {
 	Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(int pageNumber);
     Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(int pageNumber);
     Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, int pageNumber);
-	Page<Survey> findByCreatorIgnoreCaseAndTemplate(String creator, int page );
+	Page<Survey> findByCreatorIgnoreCaseAndTemplate(String creator, int page);
 }
