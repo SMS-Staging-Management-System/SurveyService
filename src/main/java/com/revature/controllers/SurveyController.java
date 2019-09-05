@@ -32,6 +32,11 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
+	@PostMapping("creator")
+	public Page<Survey> findAllByCreator(@RequestBody String creator, @RequestParam int page) {
+		return surveyService.findAllByCreator(creator, page);
+	}
+	
 	@GetMapping("template/{isTemplate}")
 	public Page<Survey> findByTemplate(@PathVariable String isTemplate, @RequestParam int page) {
 		return surveyService.findByTemplateOrderByDateCreatedDesc(isTemplate, page);

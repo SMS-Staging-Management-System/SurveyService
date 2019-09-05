@@ -23,5 +23,8 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 	@Query("FROM Survey s WHERE s.template = :isTemplate")
 	Page<Survey> findByTemplate(boolean isTemplate, Pageable page);
 	
+	@Query("FROM Survey s WHERE s.creator = :creator")
+	Page<Survey> findByCreator(String creator, Pageable page);
+	
 
 }

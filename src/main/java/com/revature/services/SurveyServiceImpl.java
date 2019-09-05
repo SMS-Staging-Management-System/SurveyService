@@ -51,6 +51,12 @@ public class SurveyServiceImpl implements SurveyService {
 	
 
 	@Override
+	public Page<Survey> findAllByCreator(String creator, int pageNumber) {
+		Pageable page = PageRequest.of(pageNumber, 5, Sort.by(Order.desc("dateCreated")));
+		return surveyRepo.findByCreator(String.valueOf(creator), page);
+	}
+	
+	@Override
 	public Survey findById(int id) {
 		return surveyRepo.getOne(id);
 	}
@@ -64,7 +70,7 @@ public class SurveyServiceImpl implements SurveyService {
 	public List<Survey> findByDescriptionContainingIgnoreCase(String description) {
 		return surveyRepo.findByDescriptionContainingIgnoreCaseOrderByDateCreatedDesc(description);
 	}
-
+	
 	@Override
 	@Transactional
 	public Survey save(Survey s) {

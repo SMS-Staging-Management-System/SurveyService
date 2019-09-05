@@ -17,5 +17,6 @@ public interface SurveyService {
 //	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
+	Page<Survey> findAllByCreator(String theCreator, int pageNumber);
 	
 }
