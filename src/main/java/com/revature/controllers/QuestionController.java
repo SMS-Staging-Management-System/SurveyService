@@ -39,13 +39,13 @@ public class QuestionController {
 		return questionService.findByType(typeId);
 	}
 	
-	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping("/multi-question")
 	public List<Question> multipleQuestions(@RequestBody List<Question> questions) {
 		return questionService.saveMultiple(questions);
 	}
 
-	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Question save(@Valid @RequestBody Question q) {
 		Question question = questionService.save(q);

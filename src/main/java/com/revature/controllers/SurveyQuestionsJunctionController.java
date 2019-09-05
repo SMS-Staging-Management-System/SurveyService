@@ -33,13 +33,13 @@ public class SurveyQuestionsJunctionController {
 	}
 
 	@GetMapping("/surveyId/{id}")
-	public List<SurveyQuestionsJunction> findBySurveyIdSurveyId(@PathVariable int id) {
-		return surveyQuestionsJunctionService.findBySurveyIdSurveyId(id);
+	public List<SurveyQuestionsJunction> findBySurveySurveyId(@PathVariable int id) {
+		return surveyQuestionsJunctionService.findBySurveySurveyId(id);
 	}
 	
 	@GetMapping("/questionId/{id}")
-	public List<SurveyQuestionsJunction> findByQuestionIdQuestionId(@PathVariable int id) {
-		return surveyQuestionsJunctionService.findByQuestionIdQuestionId(id);
+	public List<SurveyQuestionsJunction> findByQuestionQuestionId(@PathVariable int id) {
+		return surveyQuestionsJunctionService.findByQuestionQuestionId(id);
 	}
 
 	@PostMapping("/multi-question")

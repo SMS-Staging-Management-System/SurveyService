@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.List;
+
 import com.revature.models.Survey;
 
 public interface SurveyService {
@@ -9,8 +10,11 @@ public interface SurveyService {
 	Survey delete(Survey s);
 	
 	List<Survey> findAllOrderByDateCreatedDesc();
+	List<Survey> findAllTemplateOrderByDateCreatedDesc();
+	List<Survey> findAllPublishedOrderByDateCreatedDesc();
 	Survey findById(int id);
 //	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
+	
 }

@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -26,16 +30,21 @@ public class Question {
 	@NotNull
 	@Column(name = "type_id")
 	private int typeId;
+	
+	@OneToMany(mappedBy="question", cascade=CascadeType.PERSIST)
+	private List<Answers> answers;
 
 	public Question() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Question(int questionId, @NotNull String question, @NotNull int typeId) {
+	public Question(int questionId, @NotNull String question, @NotNull int typeId, List<Answers> answers) {
 		super();
 		this.questionId = questionId;
 		this.question = question;
 		this.typeId = typeId;
+		this.answers = answers;
 	}
 
 	public int getQuestionId() {
@@ -62,10 +71,19 @@ public class Question {
 		this.typeId = typeId;
 	}
 
+	public List<Answers> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answers> answers) {
+		this.answers = answers;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((answers == null) ? 0 : answers.hashCode());
 		result = prime * result + ((question == null) ? 0 : question.hashCode());
 		result = prime * result + questionId;
 		result = prime * result + typeId;
@@ -81,6 +99,11 @@ public class Question {
 		if (getClass() != obj.getClass())
 			return false;
 		Question other = (Question) obj;
+		if (answers == null) {
+			if (other.answers != null)
+				return false;
+		} else if (!answers.equals(other.answers))
+			return false;
 		if (question == null) {
 			if (other.question != null)
 				return false;
@@ -95,7 +118,10 @@ public class Question {
 
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", question=" + question + ", typeId=" + typeId + "]";
+		return "Question [questionId=" + questionId + ", question=" + question + ", typeId=" + typeId + ", answers="
+				+ answers + "]";
 	}
+	
+	
 
 }
