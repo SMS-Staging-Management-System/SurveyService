@@ -5,15 +5,15 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.cognito.annotations.CognitoAuth;
-import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.Survey;
 import com.revature.services.SurveyService;
 
@@ -30,11 +30,24 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
-	@GetMapping("template")
-	public List<Survey> findAllTemplate() {
-		return surveyService.findAllTemplateOrderByDateCreatedDesc();
-	}
-	
+    @GetMapping("/template/{page}")
+    public Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(@PathVariable int page) {
+        System.out.println(page);
+        return surveyService.findByTemplateIsTrueOrderByDateCreatedDesc(page);
+    }
+    
+    @GetMapping("/survey/{page}")
+    public Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(@PathVariable int page) {
+        System.out.println(page);
+        return surveyService.findByTemplateIsFalseOrderByDateCreatedDesc(page);
+    }
+	    
+    @GetMapping("template/{title}/{page}")
+    public Page<Survey> findByTitleAndTemplate(@PathVariable String title,@PathVariable int page) {
+        System.out.println(page);
+        return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
+    }
+    
 	@GetMapping("published")
 	public List<Survey> findAllPublished() {
 		return surveyService.findAllPublishedOrderByDateCreatedDesc();

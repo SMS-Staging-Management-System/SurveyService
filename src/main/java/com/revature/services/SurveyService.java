@@ -2,6 +2,8 @@ package com.revature.services;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.revature.models.Survey;
 
 public interface SurveyService {
@@ -16,5 +18,7 @@ public interface SurveyService {
 //	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
-	
+	Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(int pageNumber);
+    Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(int pageNumber);
+    Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, int pageNumber);
 }

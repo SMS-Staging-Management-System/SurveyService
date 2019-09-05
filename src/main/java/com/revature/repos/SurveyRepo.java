@@ -1,10 +1,13 @@
 package com.revature.repos;
 
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.revature.models.Survey;
-import java.util.List;
 
 public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 //	@Query("From survey WHERE title LIKE CONCAT('%',:title,'%')")
@@ -23,5 +26,11 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 	
 	@Query("FROM Survey s WHERE s.published = true ORDER BY dateCreated DESC")
 	List<Survey> findAllPublishedOrderByDateCreatedDes();
+	
+	 Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(Pageable page);
+     
+     Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(Pageable page);
+     
+     Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, Pageable page);
 
 }
