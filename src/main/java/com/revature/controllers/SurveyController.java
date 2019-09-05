@@ -78,4 +78,9 @@ public class SurveyController {
 	public Survey save(@Valid @RequestBody Survey s) {
 		return surveyService.save(s);
 	}
+	
+	@GetMapping("template/creator/{page}/")
+	public Page<Survey> findByCreatorIgnoreCaseAndTemplate(@RequestParam String creator, @PathVariable int page){
+		return surveyService.findByCreatorIgnoreCaseAndTemplate(creator, page);
+	}
 }

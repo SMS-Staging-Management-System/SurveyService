@@ -33,4 +33,6 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
      
      Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, Pageable page);
 
+	Page<Survey> findByCreatorIgnoreCaseAndTemplate(String creator, Pageable page);
+
 }
