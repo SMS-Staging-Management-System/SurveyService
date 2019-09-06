@@ -30,6 +30,7 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
+	//made template pg
     @GetMapping("/template/{page}")
     public Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(@PathVariable int page) {
         System.out.println(page);
@@ -83,6 +84,10 @@ public class SurveyController {
 //	public Page<Survey> findByCreatorIgnoreCase(@PathVariable String creator){
 //		return surveyService.findByCreatorIgnoreCase(creator, 0);
 //	}
+//	
+	
+//	/template/{isTemplate}/create/{email}?page=
+	//find template that the user has created only
     @GetMapping("template/creator/{title}/{page}")
     public Page<Survey> findByCreatorIgnoreCase(@PathVariable String title,@PathVariable int page) {
         System.out.println(page);

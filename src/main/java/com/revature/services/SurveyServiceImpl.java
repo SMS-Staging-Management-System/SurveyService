@@ -113,14 +113,14 @@ public class SurveyServiceImpl implements SurveyService {
 	}
     @Override
     public Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(int pageNumber) {
-        Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
+        Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
     
         return surveyRepo.findByTemplateIsTrueOrderByDateCreatedDesc(page);
     }
     
     @Override
     public Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(int pageNumber) {
-        Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
+        Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
     
         return surveyRepo.findByTemplateIsFalseOrderByDateCreatedDesc(page);
     }
@@ -128,7 +128,7 @@ public class SurveyServiceImpl implements SurveyService {
 	@Override
 	public Page<Survey> findByCreatorIgnoreCaseAndTemplate(String creator, int pageNumber) {
 
-		 Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
+		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
 		return surveyRepo.findByCreatorIgnoreCaseAndTemplate(creator,page);
 	}
 
