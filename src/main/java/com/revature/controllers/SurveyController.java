@@ -86,6 +86,6 @@ public class SurveyController {
     @GetMapping("template/creator/{title}/{page}")
     public Page<Survey> findByCreatorIgnoreCase(@PathVariable String title,@PathVariable int page) {
         System.out.println(page);
-        return surveyService.findByCreatorIgnoreCaseAndTemplate(title, page);
+        return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(title, page);
     }
 }
