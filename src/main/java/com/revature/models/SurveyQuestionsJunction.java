@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "junction_survey_questions")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@JsonFilter("depth_5")
 public class SurveyQuestionsJunction {
 
 	@Id
@@ -23,102 +26,71 @@ public class SurveyQuestionsJunction {
 	
 	@ManyToOne
 	@JoinColumn(name = "survey_id")
-	private Survey surveyId;
+	private Survey survey;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "question_id")
-	private Question questionId;
+	private Question question;
 	
 	@NotNull
 	@Column(name = "question_order")
 	private int questionOrder;
 
-	public SurveyQuestionsJunction(int id, Survey surveyId, Question questionId, @NotNull int questionOrder) {
+	public SurveyQuestionsJunction() {
+		super();
+	}
+
+	public SurveyQuestionsJunction(int id, Survey survey, Question question, @NotNull int questionOrder) {
 		super();
 		this.id = id;
-		this.surveyId = surveyId;
-		this.questionId = questionId;
+		this.survey = survey;
+		this.question = question;
 		this.questionOrder = questionOrder;
 	}
 
-	public SurveyQuestionsJunction() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the surveyId
-	 */
-	public Survey getSurveyId() {
-		return surveyId;
+	public Survey getSurvey() {
+		return survey;
 	}
 
-	/**
-	 * @param surveyId the surveyId to set
-	 */
-	public void setSurveyId(Survey surveyId) {
-		this.surveyId = surveyId;
+	public void setSurvey(Survey survey) {
+		this.survey = survey;
 	}
 
-	/**
-	 * @return the questionId
-	 */
-	public Question getQuestionId() {
-		return questionId;
+	public Question getQuestion() {
+		return question;
 	}
 
-	/**
-	 * @param questionId the questionId to set
-	 */
-	public void setQuestionId(Question questionId) {
-		this.questionId = questionId;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
-	/**
-	 * @return the questionOrder
-	 */
 	public int getQuestionOrder() {
 		return questionOrder;
 	}
 
-	/**
-	 * @param questionOrder the questionOrder to set
-	 */
 	public void setQuestionOrder(int questionOrder) {
 		this.questionOrder = questionOrder;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((questionId == null) ? 0 : questionId.hashCode());
+		result = prime * result + ((question == null) ? 0 : question.hashCode());
 		result = prime * result + questionOrder;
-		result = prime * result + ((surveyId == null) ? 0 : surveyId.hashCode());
+		result = prime * result + ((survey == null) ? 0 : survey.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,28 +102,26 @@ public class SurveyQuestionsJunction {
 		SurveyQuestionsJunction other = (SurveyQuestionsJunction) obj;
 		if (id != other.id)
 			return false;
-		if (questionId == null) {
-			if (other.questionId != null)
+		if (question == null) {
+			if (other.question != null)
 				return false;
-		} else if (!questionId.equals(other.questionId))
+		} else if (!question.equals(other.question))
 			return false;
 		if (questionOrder != other.questionOrder)
 			return false;
-		if (surveyId == null) {
-			if (other.surveyId != null)
+		if (survey == null) {
+			if (other.survey != null)
 				return false;
-		} else if (!surveyId.equals(other.surveyId))
+		} else if (!survey.equals(other.survey))
 			return false;
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "SurveyQuestionsJunction [id=" + id + ", surveyId=" + surveyId + ", questionId=" + questionId
+		return "SurveyQuestionsJunction [id=" + id + ", survey=" + survey + ", question=" + question
 				+ ", questionOrder=" + questionOrder + "]";
 	}
 
+	
 }

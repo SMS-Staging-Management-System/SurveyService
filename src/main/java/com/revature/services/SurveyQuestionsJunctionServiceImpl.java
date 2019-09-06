@@ -44,13 +44,13 @@ public class SurveyQuestionsJunctionServiceImpl implements SurveyQuestionsJuncti
 	}
 
 	@Override
-	public List<SurveyQuestionsJunction> findBySurveyIdSurveyId(int surveyId) {
-		return surveyQuestionsJunctionRepo.findBySurveyIdSurveyId(surveyId);
+	public List<SurveyQuestionsJunction> findBySurveySurveyId(int surveyId) {
+		return surveyQuestionsJunctionRepo.findBySurveySurveyId(surveyId);
 	}
 
 	@Override
-	public List<SurveyQuestionsJunction> findByQuestionIdQuestionId(int questionId) {
-		return surveyQuestionsJunctionRepo.findByQuestionIdQuestionId(questionId);
+	public List<SurveyQuestionsJunction> findByQuestionQuestionId(int questionId) {
+		return surveyQuestionsJunctionRepo.findByQuestionQuestionId(questionId);
 	}
 
 	@Override

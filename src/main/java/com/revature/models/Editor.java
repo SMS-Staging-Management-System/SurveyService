@@ -1,9 +1,5 @@
 package com.revature.models;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -61,7 +57,6 @@ public class Editor {
 
 	public Editor() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	

@@ -40,7 +40,7 @@ public class AnswersController {
 
 	@GetMapping("/question/{questionId}")
 	public List<Answers> findByQuestionId(@PathVariable int questionId) {
-		return answerService.findByQuestionId(questionId);
+		return answerService.findByQuestionQuestionId(questionId);
 	}
 	
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})

@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.cognito.annotations.CognitoAuth;
-import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.History;
 import com.revature.services.HistoryService;
 
@@ -45,8 +44,8 @@ public class HistoryController {
 	}
 	
 	// Query for email. Uses post mapping so that the @ symbol can be send in the body rather than in the URL
-	@PostMapping("/email")
-	public List<History> findByEmail(@Valid @RequestBody String email) {
+	@GetMapping("/email")
+	public List<History> findByEmail(@RequestParam String email) {
 		return historyService.findByEmail(email);
 	}
 	

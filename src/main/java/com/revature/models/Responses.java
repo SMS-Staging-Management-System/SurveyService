@@ -40,7 +40,6 @@ public class Responses {
 
 	public Responses() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
