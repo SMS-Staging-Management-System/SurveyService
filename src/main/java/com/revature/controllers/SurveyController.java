@@ -48,7 +48,7 @@ public class SurveyController {
     	}
     }
     
-    @GetMapping("template/{isTemplate}/creator/{email}")
+    @GetMapping("template/{isTemplate}/{email}/creator")
     public Page<Survey> findByCreatorIgnoreCase(@PathVariable boolean isTemplate, @PathVariable String email,@RequestParam int page) {
     	if(isTemplate) {    		
     		return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(email, page);
