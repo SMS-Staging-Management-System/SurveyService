@@ -13,13 +13,14 @@ public interface SurveyService {
 	
 	List<Survey> findAllOrderByDateCreatedDesc();
 	List<Survey> findAllTemplateOrderByDateCreatedDesc();
-//	List<Survey> findAllPublishedOrderByDateCreatedDesc();
 	Survey findById(int id);
-//	List<Survey> findByTitle(String title);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
-	Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(int pageNumber);
-    Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(int pageNumber);
+	Page<Survey> findByTemplateIsTrue(int pageNumber);	
+	Page<Survey> findByTemplateIsFalse(int pageNumber);
     Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, int pageNumber);
-	Page<Survey> findByCreatorIgnoreCaseAndTemplateIsTrue(String creator, int page);
+    Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsFalse(String title, int pageNumber);
+	Page<Survey> findByCreatorIgnoreCaseAndTemplateIsTrue(String email, int pageNumber);
+	Page<Survey> findByCreatorIgnoreCaseAndTemplateIsFalse(String email, int pageNumber);
+
 }
