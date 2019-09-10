@@ -41,7 +41,11 @@ public class Survey {
 	private Date closingDate;
 	
 	private boolean template;
+<<<<<<< HEAD
 	
+=======
+		
+>>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 	@OneToMany(mappedBy="survey", cascade=CascadeType.PERSIST)
 	private List<SurveyQuestionsJunction> questionJunctions;
 
@@ -121,6 +125,7 @@ public class Survey {
 
 	public List<SurveyQuestionsJunction> getQuestionJunctions() {
 		return questionJunctions;
+
 	}
 
 	public void setQuestionJunctions(List<SurveyQuestionsJunction> questionJunctions) {
@@ -194,7 +199,16 @@ public class Survey {
 		return true;
 	}
 
+<<<<<<< HEAD
 	
 		
+=======
+	@Override
+	public String toString() {
+		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
+				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", template=" + template
+				+  "]";
+	}
+>>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 
 }

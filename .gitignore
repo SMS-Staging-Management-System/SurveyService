@@ -49,3 +49,9 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
+
+
+### MVN
+
+.mvnw
+.mvnw.cmd

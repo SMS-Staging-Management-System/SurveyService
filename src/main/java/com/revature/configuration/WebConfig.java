@@ -42,7 +42,11 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/api/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
         registry.addResourceHandler("/api/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 	public MappingJackson2HttpMessageConverter jacksonMessageConverter() {
 		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
 

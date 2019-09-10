@@ -48,6 +48,33 @@ public class SurveyController {
 		return surveyService.findByActiveOrderByDateCreatedDesc(isActive, page);
 	}
 	
+    
+    @GetMapping("/template/{isTemplate}")
+    public Page<Survey> findByTemplate(@PathVariable boolean isTemplate, @RequestParam int page) {
+        if(isTemplate) {
+        	return surveyService.findByTemplateIsTrue(page);
+        } else {
+        	return surveyService.findByTemplateIsFalse(page);
+        }
+    }
+	    
+    @GetMapping("template/{isTemplate}/title/{title}")
+    public Page<Survey> findByTitleAndTemplate(@PathVariable boolean isTemplate, @PathVariable String title,@RequestParam int page) {
+    	if(isTemplate) {
+            return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
+    	} else {    		
+    		return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsFalse(title, page);
+    	}
+    }
+    
+    @GetMapping("template/{isTemplate}/{email}/creator")
+    public Page<Survey> findByCreatorIgnoreCase(@PathVariable boolean isTemplate, @PathVariable String email,@RequestParam int page) {
+    	if(isTemplate) {    		
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(email, page);
+    	} else {
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsFalse(email, page);
+    	}
+    }
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
