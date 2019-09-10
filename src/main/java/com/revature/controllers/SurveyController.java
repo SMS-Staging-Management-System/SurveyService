@@ -32,20 +32,54 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
+	// /template/{isTemplate}/creator/{email}?page=
+	@GetMapping("creator")
+	public Page<Survey> findAllByCreator(@RequestParam String creator, @RequestParam int page) {
+		return surveyService.findAllByCreator(creator, page);
+	}
+	
 	@GetMapping("template/{isTemplate}")
 	public Page<Survey> findByTemplate(@PathVariable String isTemplate, @RequestParam int page) {
 		return surveyService.findByTemplateOrderByDateCreatedDesc(isTemplate, page);
 	}
+	
+	@GetMapping("active/{isActive}")
+	public Page<Survey> findByStatus(@PathVariable String isActive, @RequestParam int page) {
+		return surveyService.findByActiveOrderByDateCreatedDesc(isActive, page);
+	}
+	
+    
+    @GetMapping("/template/{isTemplate}")
+    public Page<Survey> findByTemplate(@PathVariable boolean isTemplate, @RequestParam int page) {
+        if(isTemplate) {
+        	return surveyService.findByTemplateIsTrue(page);
+        } else {
+        	return surveyService.findByTemplateIsFalse(page);
+        }
+    }
+	    
+    @GetMapping("template/{isTemplate}/title/{title}")
+    public Page<Survey> findByTitleAndTemplate(@PathVariable boolean isTemplate, @PathVariable String title,@RequestParam int page) {
+    	if(isTemplate) {
+            return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
+    	} else {    		
+    		return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsFalse(title, page);
+    	}
+    }
+    
+    @GetMapping("template/{isTemplate}/{email}/creator")
+    public Page<Survey> findByCreatorIgnoreCase(@PathVariable boolean isTemplate, @PathVariable String email,@RequestParam int page) {
+    	if(isTemplate) {    		
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(email, page);
+    	} else {
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsFalse(email, page);
+    	}
+    }
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
 		return surveyService.findById(id);
 	}
-
-//	@GetMapping("/title/{title}")
-//	public List<Survey> findByTitle(@PathVariable String title) {
-//		return surveyService.findByTitle(title);
-//	}
 
 	@GetMapping("/title/{title}")
 	public List<Survey> findByTitleContainingIgnoreCase(@PathVariable String title) {

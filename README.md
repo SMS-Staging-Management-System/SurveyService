@@ -34,7 +34,7 @@ Password to access the database
 ```DB_PASSWORD: password```
 
 Schema for the database  
-```DB_SCHEMA: user_service```
+```DB_SCHEMA: survey_service```
 
 Url pointing to the database that the service will use  
 ```DB_URL: jdbc:postgresql://localhost:5432/postgres```
