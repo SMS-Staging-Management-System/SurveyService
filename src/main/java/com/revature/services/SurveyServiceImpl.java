@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -18,7 +19,6 @@ import com.revature.models.Survey;
 import com.revature.models.SurveyQuestionsJunction;
 import com.revature.repos.QuestionRepo;
 import com.revature.repos.SurveyRepo;
-import com.revature.services.SurveyService;
 
 @Service
 public class SurveyServiceImpl implements SurveyService {
@@ -47,6 +47,17 @@ public class SurveyServiceImpl implements SurveyService {
 	public Page<Survey> findByTemplateOrderByDateCreatedDesc(String isTemplate, int pageNumber) {
 		Pageable page = PageRequest.of(pageNumber, 5, Sort.by(Order.desc("dateCreated")));
 		return surveyRepo.findByTemplate(Boolean.valueOf(isTemplate), page);
+	}
+	
+	@Override
+	public Page<Survey> findByActiveOrderByDateCreatedDesc(String isActive, int pageNumber) {
+		Pageable page = PageRequest.of(pageNumber, 5, Sort.by(Order.desc("dateCreated")));
+		if(isActive.equalsIgnoreCase("true")) {
+			return surveyRepo.findByActive(new Date() ,page);
+		} else {
+			return surveyRepo.findByClosed(new Date() ,page);
+		}
+		
 	}
 	
 

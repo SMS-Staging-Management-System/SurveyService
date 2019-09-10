@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.revature.models.Survey;
+
+import java.util.Date;
 import java.util.List;
 
 public interface SurveyRepo extends JpaRepository<Survey, Integer> {
@@ -25,6 +27,12 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 	
 	@Query("FROM Survey s WHERE s.creator = :creator")
 	Page<Survey> findByCreator(String creator, Pageable page);
+
+	@Query("FROM Survey s WHERE (s.closingDate > :date OR s.closingDate = null) AND s.template = false")
+	Page<Survey> findByActive(Date date, Pageable page);
+
+	@Query("FROM Survey s WHERE s.closingDate <= :date AND s.template = false")
+	Page<Survey> findByClosed(Date date, Pageable page);
 	
 
 }

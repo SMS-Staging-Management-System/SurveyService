@@ -32,8 +32,9 @@ public class SurveyController {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
 	
-	@PostMapping("creator")
-	public Page<Survey> findAllByCreator(@RequestBody String creator, @RequestParam int page) {
+	// /template/{isTemplate}/creator/{email}?page=
+	@GetMapping("creator")
+	public Page<Survey> findAllByCreator(@RequestParam String creator, @RequestParam int page) {
 		return surveyService.findAllByCreator(creator, page);
 	}
 	
@@ -41,16 +42,17 @@ public class SurveyController {
 	public Page<Survey> findByTemplate(@PathVariable String isTemplate, @RequestParam int page) {
 		return surveyService.findByTemplateOrderByDateCreatedDesc(isTemplate, page);
 	}
+	
+	@GetMapping("active/{isActive}")
+	public Page<Survey> findByStatus(@PathVariable String isActive, @RequestParam int page) {
+		return surveyService.findByActiveOrderByDateCreatedDesc(isActive, page);
+	}
+	
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
 		return surveyService.findById(id);
 	}
-
-//	@GetMapping("/title/{title}")
-//	public List<Survey> findByTitle(@PathVariable String title) {
-//		return surveyService.findByTitle(title);
-//	}
 
 	@GetMapping("/title/{title}")
 	public List<Survey> findByTitleContainingIgnoreCase(@PathVariable String title) {
