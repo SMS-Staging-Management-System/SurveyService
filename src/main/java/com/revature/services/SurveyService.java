@@ -12,7 +12,7 @@ public interface SurveyService {
 	Survey delete(Survey s);
 	
 	List<Survey> findAllOrderByDateCreatedDesc();
-	Page<Survey> findByTemplateOrderByDateCreatedDesc(String isTemplate, int page);
+//	Page<Survey> findByTemplateOrderByDateCreatedDesc(String isTemplate, int page);
 	Survey findById(int id);
 	List<Survey> findByTitleContainingIgnoreCase(String title);
 	List<Survey> findByDescriptionContainingIgnoreCase(String description);
