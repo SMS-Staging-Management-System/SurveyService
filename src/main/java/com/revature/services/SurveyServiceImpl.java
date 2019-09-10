@@ -128,13 +128,13 @@ public class SurveyServiceImpl implements SurveyService {
 	@Override
 	public Page<Survey> findByCreatorIgnoreCaseAndTemplateIsTrue(String creator, int pageNumber) {
 
-<<<<<<< HEAD
-		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
-		return surveyRepo.findByCreatorIgnoreCaseAndTemplate(creator,page);
-=======
+////<<<<<<< HEAD
+//		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
+//		return surveyRepo.findByCreatorIgnoreCaseAndTemplate(creator,page);
+////=======
 		 Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
 		return surveyRepo.findByCreatorIgnoreCaseAndTemplateIsTrue(creator,page);
->>>>>>> e948fe8734d740467f1c91c0896f593613caca38
+//>>>>>>> e948fe8734d740467f1c91c0896f593613caca38
 	}
 
 //	@Override
