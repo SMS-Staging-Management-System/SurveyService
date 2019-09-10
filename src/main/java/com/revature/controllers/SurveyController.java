@@ -29,44 +29,37 @@ public class SurveyController {
 	public List<Survey> findAll() {
 		return surveyService.findAllOrderByDateCreatedDesc();
 	}
-	
-	//made template pg
-    @GetMapping("/template/{page}")
-    public Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(@PathVariable int page) {
-        System.out.println(page);
-        return surveyService.findByTemplateIsTrueOrderByDateCreatedDesc(page);
-    }
     
-    @GetMapping("/survey/{page}")
-    public Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(@PathVariable int page) {
-        System.out.println(page);
-        return surveyService.findByTemplateIsFalseOrderByDateCreatedDesc(page);
+    @GetMapping("/template/{isTemplate}")
+    public Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(@PathVariable boolean isTemplate, @RequestParam int page) {
+        if(isTemplate) {
+        	return surveyService.findByTemplateIsTrue(page);
+        } else {
+        	return surveyService.findByTemplateIsFalse(page);
+        }
     }
 	    
-    @GetMapping("template/{title}/{page}")
-    public Page<Survey> findByTitleAndTemplate(@PathVariable String title,@PathVariable int page) {
-        System.out.println(page);
-        return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
+    @GetMapping("template/{isTemplate}/title/{title}")
+    public Page<Survey> findByTitleAndTemplate(@PathVariable boolean isTemplate, @PathVariable String title,@RequestParam int page) {
+    	if(isTemplate) {
+            return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
+    	} else {    		
+    		return surveyService.findByTitleContainingIgnoreCaseAndTemplateIsFalse(title, page);
+    	}
     }
     
-//	@GetMapping("published")
-//	public List<Survey> findAllPublished() {
-//		return surveyService.findAllPublishedOrderByDateCreatedDesc();
-//	}
+    @GetMapping("template/{isTemplate}/{email}/creator")
+    public Page<Survey> findByCreatorIgnoreCase(@PathVariable boolean isTemplate, @PathVariable String email,@RequestParam int page) {
+    	if(isTemplate) {    		
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(email, page);
+    	} else {
+    		return surveyService.findByCreatorIgnoreCaseAndTemplateIsFalse(email, page);
+    	}
+    }
 
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
 		return surveyService.findById(id);
-	}
-
-//	@GetMapping("/title/{title}")
-//	public List<Survey> findByTitle(@PathVariable String title) {
-//		return surveyService.findByTitle(title);
-//	}
-
-	@GetMapping("/title/{title}")
-	public List<Survey> findByTitleContainingIgnoreCase(@PathVariable String title) {
-		return surveyService.findByTitleContainingIgnoreCase(title);
 	}
 
 	@GetMapping("/description/{description}")
@@ -79,18 +72,4 @@ public class SurveyController {
 	public Survey save(@Valid @RequestBody Survey s) {
 		return surveyService.save(s);
 	}
-	
-//	@GetMapping("template/creator/{creator}/")
-//	public Page<Survey> findByCreatorIgnoreCase(@PathVariable String creator){
-//		return surveyService.findByCreatorIgnoreCase(creator, 0);
-//	}
-//	
-	
-//	/template/{isTemplate}/create/{email}?page=
-	//find template that the user has created only
-    @GetMapping("template/creator/{title}/{page}")
-    public Page<Survey> findByCreatorIgnoreCase(@PathVariable String title,@PathVariable int page) {
-        System.out.println(page);
-        return surveyService.findByCreatorIgnoreCaseAndTemplateIsTrue(title, page);
-    }
 }
