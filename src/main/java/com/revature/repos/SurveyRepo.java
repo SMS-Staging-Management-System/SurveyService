@@ -1,16 +1,15 @@
 package com.revature.repos;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.revature.models.Survey;
-import java.util.List;
 
 public interface SurveyRepo extends JpaRepository<Survey, Integer> {
-//	@Query("From survey WHERE title LIKE CONCAT('%',:title,'%')")
-//	 List<Survey> findByTitle(String title);
 	
 	List<Survey> findByTitleContainingIgnoreCaseOrderByDateCreatedDesc(String title);
 	
@@ -20,8 +19,22 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 	@Query("From Survey ORDER BY dateCreated DESC")
 	List<Survey> findAllOrderByDateCreatedDes();
 	
-	@Query("FROM Survey s WHERE s.template = :isTemplate")
-	Page<Survey> findByTemplate(boolean isTemplate, Pageable page);
+	@Query("FROM Survey s WHERE s.template = true ORDER BY dateCreated DESC")
+	List<Survey> findAllTemplateOrderByDateCreatedDes();
 	
+	Page<Survey> findByTemplateIsTrueOrderByDateCreatedDesc(Pageable page);
+	
+    Page<Survey> findByTemplateIsFalseOrderByDateCreatedDesc(Pageable page);
+    
+    Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, Pageable page);
+	
+    Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsFalse(String title, Pageable page);
+	
+    Page<Survey> findByCreatorIgnoreCaseAndTemplateIsTrue(String email, Pageable page);
+	
+    Page<Survey> findByCreatorIgnoreCaseAndTemplateIsFalse(String email, Pageable page);
 
+	Page<Survey> findByTemplateIsTrue(Pageable page);
+
+	Page<Survey> findByTemplateIsFalse(Pageable page);
 }

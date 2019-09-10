@@ -43,13 +43,13 @@ public class AnswersController {
 		return answerService.findByQuestionQuestionId(questionId);
 	}
 	
-	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Answers save(@Valid @RequestBody Answers A) {
 		return answerService.save(A);
 	}
 	
-	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping("/multi-answers")
 	public List<Answers> multipleAnswers(@RequestBody List<Answers> answers) {
 		return answerService.saveMultiple(answers);

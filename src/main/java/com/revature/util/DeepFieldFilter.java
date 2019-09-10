@@ -14,7 +14,9 @@ public class DeepFieldFilter extends SimpleBeanPropertyFilter {
 		this.maxDepth = maxDepth;
 	}
 
+
 	private int calcDepth(JsonGenerator jgen) {
+
 		JsonStreamContext sc = jgen.getOutputContext();
 		int depth = -1;
 		while (sc != null) {
@@ -27,7 +29,9 @@ public class DeepFieldFilter extends SimpleBeanPropertyFilter {
 	@Override
 	public void serializeAsField(Object pojo, JsonGenerator gen, SerializerProvider provider, PropertyWriter writer)
 			throws Exception {
+
 		int depth = calcDepth(gen);
+
 		if (depth <= maxDepth) {
 			writer.serializeAsField(pojo, gen, provider);
 		}
