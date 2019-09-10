@@ -26,6 +26,8 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Autowired
 	private QuestionRepo questionRepo;
+	
+	private Sort dateDesc = Sort.by(Direction.DESC, "dateCreated");
 
 	@Override
 	public Survey update(Survey s) {
@@ -51,13 +53,13 @@ public class SurveyServiceImpl implements SurveyService {
 	
     @Override
     public Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsTrue(String title, int pageNumber) {
-        Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
+        Pageable page = PageRequest.of(pageNumber, 3, dateDesc);
         return surveyRepo.findByTitleContainingIgnoreCaseAndTemplateIsTrue(title, page);
     }
     
     @Override
     public Page<Survey> findByTitleContainingIgnoreCaseAndTemplateIsFalse(String title, int pageNumber) {
-        Pageable page = PageRequest.of(pageNumber, 3, Sort.by(Direction.DESC, "dateCreated"));
+        Pageable page = PageRequest.of(pageNumber, 3, dateDesc);
         return surveyRepo.findByTitleContainingIgnoreCaseAndTemplateIsFalse(title, page);
     }
 
@@ -115,25 +117,25 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Override
 	public Page<Survey> findByCreatorIgnoreCaseAndTemplateIsTrue(String email, int pageNumber) {
-		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
+		 Pageable page = PageRequest.of(pageNumber, 10, dateDesc);
 		return surveyRepo.findByCreatorIgnoreCaseAndTemplateIsTrue(email,page);
 	}
 
 	@Override
 	public Page<Survey> findByCreatorIgnoreCaseAndTemplateIsFalse(String email, int pageNumber) {
-		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
+		 Pageable page = PageRequest.of(pageNumber, 10, dateDesc);
 		return surveyRepo.findByCreatorIgnoreCaseAndTemplateIsFalse(email,page);
 	}
 
 	@Override
 	public Page<Survey> findByTemplateIsTrue(int pageNumber) {
-		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
+		 Pageable page = PageRequest.of(pageNumber, 10, dateDesc);
 		return surveyRepo.findByTemplateIsTrue(page);
 	}
 
 	@Override
 	public Page<Survey> findByTemplateIsFalse(int pageNumber) {
-		 Pageable page = PageRequest.of(pageNumber, 10, Sort.by(Direction.DESC, "dateCreated"));
+		 Pageable page = PageRequest.of(pageNumber, 10, dateDesc);
 		return surveyRepo.findByTemplateIsFalse(page);
 	}
 
