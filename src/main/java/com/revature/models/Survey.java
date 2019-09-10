@@ -41,11 +41,7 @@ public class Survey {
 	private Date closingDate;
 	
 	private boolean template;
-<<<<<<< HEAD
-	
-=======
 		
->>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 	@OneToMany(mappedBy="survey", cascade=CascadeType.PERSIST)
 	private List<SurveyQuestionsJunction> questionJunctions;
 
@@ -133,12 +129,6 @@ public class Survey {
 	}
 
 	@Override
-	public String toString() {
-		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
-				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", template=" + template + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -199,16 +189,11 @@ public class Survey {
 		return true;
 	}
 
-<<<<<<< HEAD
-	
-		
-=======
 	@Override
 	public String toString() {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
 				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", template=" + template
 				+  "]";
 	}
->>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 
 }

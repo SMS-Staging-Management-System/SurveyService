@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
-
-=======
->>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 import com.revature.models.History;
 import com.revature.services.HistoryService;
 
@@ -47,13 +43,8 @@ public class HistoryController {
 	}
 	
 	// Query for email. Uses post mapping so that the @ symbol can be send in the body rather than in the URL
-<<<<<<< HEAD
-	@PostMapping("/email")
-	public List<History> findByEmail(@RequestBody String email) {
-=======
 	@GetMapping("/email")
 	public List<History> findByEmail(@RequestParam String email) {
->>>>>>> c5b8422c1238fafb1631a39cb4d9c5740b082e5e
 		return historyService.findByEmail(email);
 	}
 	
