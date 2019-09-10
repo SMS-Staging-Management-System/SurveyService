@@ -149,7 +149,7 @@ public class Responses {
 	 */
 	@Override
 	public String toString() {
-		return "Responses [id=" + id + ", userEmailString=" + userEmail + ", surveyId=" + surveyId + ", answerId="
+		return "Responses [id=" + id + ", userEmailString=" + userEmail + ", answerId="
 				+ answerId + "]";
 	}
 	
