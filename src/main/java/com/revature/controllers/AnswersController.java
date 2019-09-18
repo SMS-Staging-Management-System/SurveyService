@@ -43,7 +43,7 @@ public class AnswersController {
 		return answerService.findByQuestionQuestionId(questionId);
 	}
 	
-	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
+//	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
 	public Answers save(@Valid @RequestBody Answers A) {
 		return answerService.save(A);
