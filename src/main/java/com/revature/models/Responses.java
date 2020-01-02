@@ -40,7 +40,6 @@ public class Responses {
 
 	public Responses() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -150,7 +149,7 @@ public class Responses {
 	 */
 	@Override
 	public String toString() {
-		return "Responses [id=" + id + ", userEmailString=" + userEmail + ", surveyId=" + surveyId + ", answerId="
+		return "Responses [id=" + id + ", userEmailString=" + userEmail + ", answerId="
 				+ answerId + "]";
 	}
 	

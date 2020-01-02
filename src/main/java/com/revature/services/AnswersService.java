@@ -12,7 +12,7 @@ public interface AnswersService {
     
     List<Answers> findAll();
     Answers findById(int id);
-    List<Answers> findByQuestionId(int questionId);
+    List<Answers> findByQuestionQuestionId(int questionId);
     List<Answers> saveMultiple(List<Answers> answers);
 
 }

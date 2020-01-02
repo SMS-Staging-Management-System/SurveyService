@@ -12,6 +12,6 @@ public interface SurveyQuestionsJunctionService {
 	
 	List<SurveyQuestionsJunction> findAll();
 	SurveyQuestionsJunction findById(int id);
-	List<SurveyQuestionsJunction> findBySurveyIdSurveyId(int surveyId);
-	List<SurveyQuestionsJunction> findByQuestionIdQuestionId(int questionId);
+	List<SurveyQuestionsJunction> findBySurveySurveyId(int surveyId);
+	List<SurveyQuestionsJunction> findByQuestionQuestionId(int questionId);
 }

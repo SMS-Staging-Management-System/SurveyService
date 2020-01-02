@@ -26,7 +26,6 @@ public class QuestionType {
 	
 	public QuestionType() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public QuestionType(int id, @NotNull String questionType) {

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Responses;
-import com.revature.models.Survey;
 import com.revature.repos.ResponsesRepo;
 
 @Service

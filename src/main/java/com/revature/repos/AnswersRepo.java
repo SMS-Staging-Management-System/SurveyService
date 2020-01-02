@@ -10,7 +10,7 @@ import com.revature.models.Answers;
 @Repository
 public interface AnswersRepo  extends JpaRepository <Answers, Integer>{
 
-	List<Answers> findByQuestionId(int questionId);
+	List<Answers> findByQuestionQuestionId(int questionId);
 	
 	
 }
